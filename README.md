@@ -28,8 +28,8 @@ alt="GitHub issues">
 </p>
 
 <p align="center">
-  <a href="#Features">Why</a> •
-  <a href="#how-to-use">Features</a> •
+  <a href="#why">Why</a> •
+  <a href="#features">Features</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
