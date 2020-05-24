@@ -56,14 +56,13 @@ It's sunday and i was a little bored and thought to show Microsoft how i would h
 
 ## Download
 
-(Latest release) [Download](https://github.com/mirinsoft/burnbytes/releases) 
-
+(Latest release) [Download](https://github.com/mirinsoft/burnbytes/releases)
 (Source Code) [Download](https://github.com/mirinsoft/burnbytes/releases) 
 
 ## Credits
 
-- This project is based upon Albacore's Managed Disk Cleanup
-https://github.com/thebookisclosed/Comet/tree/master/Comet
+This project is based upon Albacore's Managed Disk Cleanup
+- https://github.com/thebookisclosed/Comet/tree/master/Comet
 
 This software uses the following packages:
 
