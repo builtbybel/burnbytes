@@ -46,11 +46,13 @@ Disk Cleanup (Cleanmgr.exe) is a Microsoft software utility first introduced wit
 
 With Windows 10 Microsoft will be retiring Disk Cleanup tool and replace it with Storage Sense. 
 
-I have never been a fan of Storage sense and a year ago i took a new path and created [Cleanmgr+](https://github.com/mirinsoft/CleanmgrPlus). I saw the 1:1 replica of [Albacore's Managed Disk Cleanup yesterday](https://github.com/thebookisclosed/Comet). I looks exactly like the classic cleanmgr.exe and uses identical technical terms and descriptions and does exactly the same thing that the classic Windows Disk Clean-up utility does.
+I have never been a fan of Storage sense and a year ago i took a new path and created [Cleanmgr+](https://github.com/mirinsoft/CleanmgrPlus). I saw the 1:1 replica of [Albacore's Managed Disk Cleanup yesterday](https://github.com/thebookisclosed/Comet). It looks exactly like the classic cleanmgr.exe and uses identical technical terms and descriptions and does exactly the same thing that the classic Windows Disk Clean-up utility does.
 
 It's sunday and i was a little bored and thought to show Microsoft how i would have done it. The technology was already there (thanks to Albacore) so it only needed a fresh, modern Windows 10 touch. The result you see now is Burnbytes
 
-Everybody who is interested in this project is welcome to help. I myself will not have much time and neither does albacore at the moment. I could imagine for the roadmap an integration of the community cleaner "winapp2.ini". Just quickly thought ..
+Everybody who is interested in this project is welcome to help. I myself will not have much time and neither does albacore at the moment. I could imagine for the roadmap an integration of the community cleaner "winapp2.ini". Just quickly thought.
+
+#### My main goal is a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, share this post and take a look at the (C#) code.
 
 ## Features
 - 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense
