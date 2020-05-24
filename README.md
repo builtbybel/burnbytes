@@ -64,7 +64,7 @@ Everybody who is interested in this project is welcome to help. I myself will no
 ## Credits
 
 This project is based upon Albacore's Managed Disk Cleanup
-- (Original repo) https://github.com/thebookisclosed/Comet/tree/master/Comet
+- (Original repo) https://github.com/thebookisclosed/Comet
 - (Contact) https://twitter.com/thebookisclosed
 
 This software uses the following packages:
