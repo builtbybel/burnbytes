@@ -54,7 +54,7 @@ Everybody who is interested in this project is welcome to help. I myself will no
 
 ## Features
 - 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense
-- 64Bit
+- 64bit
 
 ## Download
 
