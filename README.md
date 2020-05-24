@@ -52,7 +52,7 @@ It's sunday and i was a little bored and thought to show Microsoft how i would h
 
 Everybody who is interested in this project is welcome to help. I myself will not have much time and neither does albacore at the moment. I could imagine for the roadmap an integration of the community cleaner "winapp2.ini". Just quickly thought.
 
-#### My main goal is a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this post.
+#### My main goal is a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this work.
 
 ## Features
 - 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense
