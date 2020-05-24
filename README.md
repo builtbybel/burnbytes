@@ -62,7 +62,7 @@ It's sunday and i was a little bored and thought to show Microsoft how i would h
 ## Credits
 
 This project is based upon Albacore's Managed Disk Cleanup
-- https://github.com/thebookisclosed/Comet/tree/master/Comet
+- (Original repo) https://github.com/thebookisclosed/Comet/tree/master/Comet
 - (Contact) https://twitter.com/thebookisclosed
 
 This software uses the following packages:
