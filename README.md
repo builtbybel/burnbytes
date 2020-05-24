@@ -51,7 +51,7 @@ I have never been a fan of Storage sense and a year ago i took a new path and cr
 It's sunday and i was a little bored and thought to show Microsoft how i would have done it. The technology was already there (thanks to Albacore) so it only needed a fresh, modern Windows 10 touch. The result you see now is Burnbytes
 
 ## Features
-- Replacement for Microsoft Disk Cleanup with a modern touch of Storage sense
+- 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense
 - 64Bit
 
 ## Download
@@ -70,14 +70,5 @@ This software uses the following packages:
 
 ## License
 
-The licence conditions will soon be provided by original author
+The licence conditions will soon be provided by the original author
 https://github.com/thebookisclosed/Comet/tree/master/Comet
-
----
-
-> [mirinsoft.com](https://www.mirinsoft.com) &nbsp;&middot;&nbsp;
-> GitHub [@mirinsoft](https://github.com/mirinsoft) &nbsp;&middot;&nbsp;
-> Twitter [@mirinsoft](https://twitter.com/mirinsoft)
-
-
-
