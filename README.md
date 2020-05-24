@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.mirinsoft.com"><img src="https://github.com/mirinsoft/burnbytes/blob/master/icon.ico" alt="SharpApp" width="200"></a>
+  <a href="http://www.mirinsoft.com"><img src="https://github.com/mirinsoft/burnbytes/blob/master/icon.ico" alt="Burnbytes" width="200"></a>
   <br>
   Burnbytes
   <br>
