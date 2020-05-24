@@ -3,7 +3,7 @@
   <br>
   <a href="http://www.mirinsoft.com"><img src="https://github.com/mirinsoft/burnbytes/blob/master/icon.ico" alt="SharpApp" width="200"></a>
   <br>
-  #app (SharpApp)
+  Burnbytes
   <br>
 </h1>
 
