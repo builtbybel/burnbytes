@@ -74,4 +74,4 @@ This software uses the following packages:
 ## License
 
 The licence conditions will soon be provided by the original author
-- https://github.com/thebookisclosed/Comet/tree/master/Comet
+- https://github.com/thebookisclosed/Comet
