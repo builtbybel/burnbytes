@@ -56,8 +56,8 @@ It's sunday and i was a little bored and thought to show Microsoft how i would h
 
 ## Download
 
-(Latest release) [Download](https://github.com/mirinsoft/burnbytes/releases)
-(Source Code) [Download](https://github.com/mirinsoft/burnbytes/releases) 
+- (Latest release) [Download](https://github.com/mirinsoft/burnbytes/releases)
+- (Source Code) [Download](https://github.com/mirinsoft/burnbytes/releases) 
 
 ## Credits
 
