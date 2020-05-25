@@ -51,6 +51,8 @@ I have never been a fan of Storage sense and a year ago i took a new path and cr
 
 It's sunday and i was a little bored and thought to show Microsoft how i would have done it. The technology was already there (thanks to Albacore) so it only needed a fresh, modern Windows 10 touch. The result you see now is Burnbytes!
 
+More infos here http://www.mirinsoft.com/blog/19-apps/31-revival-of-microsoft-disk-cleanup-with-burnbytes
+
 ## Features
 - 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense [NOT available in Microsoft Disk Clean-up]
 - Clean up shows a percentage progress indicator [NOT available in Microsoft Disk Clean-up]
