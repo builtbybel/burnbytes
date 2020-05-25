@@ -55,7 +55,8 @@ Everybody who is interested in this project is welcome to help. I myself will no
 #### My main goal would be a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this work.
 
 ## Features
-- 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense
+- 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense [NOT available in Microsoft Disk Clean-up]
+- Clean up shows a percentage progress indicator [NOT available in Microsoft Disk Clean-up]
 - 64bit
 
 ## Download
