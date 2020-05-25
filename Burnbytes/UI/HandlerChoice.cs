@@ -64,7 +64,6 @@ namespace Comet.UI
                 }
                 else
                     oHandler.IconHint = 0;
-
             }
             LblIntro.Text = string.Format(LblIntro.Text, NiceSize(totalSpaceUsed), Preferences.SelectedDrive.Name);
             LvwHandlers.SmallImageList = il;
@@ -72,6 +71,8 @@ namespace Comet.UI
 
         private void HandlerChoice_Load(object sender, EventArgs e)
         {
+            // Some GUI options
+            BtnCheckAll.Text = "\u2611"; // Ballot box with check
 
             Api.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
             for (int i = 0; i < Preferences.CleanupHandlers.Count; i++)
@@ -139,20 +140,6 @@ namespace Comet.UI
                 return Icon.FromHandle(bigIcon).AsDisposableIcon();
             else
                 return null;
-
-        }
-
-        private Icon GetIconOfPath(string strPath, bool bSmall)
-        {
-            SHFILEINFO info = new SHFILEINFO(true);
-            //int cbFileInfo = Marshal.SizeOf(info);
-            int cbFileInfo = 688 + IntPtr.Size;
-            int flags = 0x110;
-            if (bSmall)
-                flags |= 1;
-
-            NativeMethods.SHGetFileInfo(strPath, 256, out info, (uint)cbFileInfo, flags);
-            return Icon.FromHandle(info.hIcon).AsDisposableIcon();
         }
 
         private void LvwHandlers_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,21 +209,15 @@ namespace Comet.UI
             };
             try { Process.Start(proc); } catch { return; }
             Close();
-
-        }
-
-        private void BtnMenu_Click(object sender, EventArgs e)
-        {
-            this.contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
         }
 
         private void Info_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Burnbytes" + "\nVersion " + Program.GetCurrentVersionTostring() +
-         "\r\n\nThis is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense.\nIt combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical User interface." +
+            MessageBox.Show("Burnbytes (Phoenix)\nAimed as open community cleaner! " + "\nVersion " + Program.GetCurrentVersionTostring() +
+         "\r\n\nThis is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface." +
          "\r\n\nThis project is based upon Albacore's Managed Disk Cleanup\nhttps://github.com/thebookisclosed/Comet\r\n\n" +
-         "(C) 2019, thebookisclosed - https://twitter.com/thebookisclosed\n\n" +
-         "Modernised version\n(C) 2020, Belim from www.mirinsoft.com",
+         "(C#) 2019, thebookisclosed\nhttps://twitter.com/thebookisclosed\r\n\n" +
+         "Modernised version\n(C#) 2020, Belim from www.mirinsoft.com",
          "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -244,5 +225,18 @@ namespace Comet.UI
         {
             Process.Start("https://github.com/mirinsoft/burnbytes");
         }
+
+        private void LblMainMenu_Click(object sender, EventArgs e)
+        {
+            this.contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        private void BtnCheckAll_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem listItem in LvwHandlers.Items)
+                listItem.Checked = !listItem.Checked;
+        }
+
     }
-}
+
+ }
