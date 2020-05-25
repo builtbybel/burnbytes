@@ -31,6 +31,7 @@ alt="GitHub issues">
   <a href="#why">Why</a> •
   <a href="#features">Features</a> •
   <a href="#download">Download</a> •
+  <a href="#contribute">Contribute</a> •	
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
 </p>
@@ -52,8 +53,6 @@ It's sunday and i was a little bored and thought to show Microsoft how i would h
 
 Everybody who is interested in this project is welcome to help. I myself will not have much time and neither does albacore at the moment. I could imagine for the roadmap an integration of the community cleaner "winapp2.ini". Just quickly thought.
 
-#### My main goal would be a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this work.
-
 ## Features
 - 1:1 technical replacement for Microsoft Disk Cleanup with the modern touch of Storage sense [NOT available in Microsoft Disk Clean-up]
 - Clean up shows a percentage progress indicator [NOT available in Microsoft Disk Clean-up]
@@ -63,6 +62,9 @@ Everybody who is interested in this project is welcome to help. I myself will no
 
 - (Latest release) [Download](https://github.com/mirinsoft/burnbytes/releases)
 - (Source Code) [Download](https://github.com/mirinsoft/burnbytes/releases) 
+
+## Contribute
+My main goal would be a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this work.
 
 ## Credits
 
