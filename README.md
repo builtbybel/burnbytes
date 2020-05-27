@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">💩⭐️🚀A Disk clean up utility with the modern touch of Storage sense and classical structure of cleanmgr.exe</h4>
+<h4 align="center">💾🐦🐾 Open-source replica of Microsoft Disk Clean-up with aesthetics of Storage sense</h4>
 
 <p align="center">
 <a href="https://github.com/mirinsoft/burnbytes/releases/latest" target="_blank">
