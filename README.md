@@ -73,7 +73,6 @@ My main goal would be a community cleaner like it has never existed before. Alba
 
 This project is based upon Albacore's Managed Disk Cleanup
 - (Original repo) https://github.com/thebookisclosed/Comet
-- (Contact) https://twitter.com/thebookisclosed
 
 This software uses the following packages:
 
