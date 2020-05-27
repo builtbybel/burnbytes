@@ -47,7 +47,7 @@ Disk Cleanup (Cleanmgr.exe) is a Microsoft software utility first introduced wit
 
 With Windows 10 Microsoft will be retiring Disk Cleanup tool and replace it with Storage Sense. 
 
-I have never been a fan of Storage sense and a year ago i took a new path and created [Cleanmgr+](https://github.com/mirinsoft/CleanmgrPlus). I saw the 1:1 replica of [Albacore's Managed Disk Cleanup yesterday](https://github.com/thebookisclosed/Comet). It looks exactly like the classic cleanmgr.exe and uses identical technical terms and descriptions and does exactly the same thing that the classic Windows Disk Clean-up utility does.
+I have never been a fan of Storage sense and a year ago i took a new path and created [Cleanmgr+](https://github.com/mirinsoft/CleanmgrPlus). I saw some days ago the 1:1 replica of [Albacore's Managed Disk Cleanup](https://github.com/thebookisclosed/Comet). It looks exactly like the classic cleanmgr.exe and uses identical technical terms and descriptions and does exactly the same thing that the classic Windows Disk Clean-up utility does.
 
 It's sunday and i was a little bored and thought to show Microsoft how i would have done it. The technology was already there (thanks to Albacore) so it only needed a fresh, modern Windows 10 touch. The result you see now is Burnbytes!
 
