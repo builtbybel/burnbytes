@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Burnbytes.Properties;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -9,12 +10,20 @@ namespace Burnbytes.Forms
 {
     public partial class Scanner : Form
     {
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            lblDescription.Text = string.Format(lblDescription.Text, Preferences.SelectedDrive.Name);
+            btnCancel.Text = Resources.Button_Cancel;
+        }
+
         private readonly Thread HandlerThread;
 
         public Scanner()
         {
             InitializeComponent();
-            LblIntro.Text = string.Format(LblIntro.Text, Preferences.SelectedDrive.Name);
+            
             HandlerThread = new Thread(new ThreadStart(() =>
             {
                 Preferences.CleanupHandlers = new List<CleanupHandler>();
@@ -25,7 +34,7 @@ namespace Burnbytes.Forms
                     // Adjust progress bar maximum to discovered handler count
                     Invoke((MethodInvoker)delegate
                     {
-                        PrgScan.Maximum = subKeyNames.Length;
+                        pgrScanning.Maximum = subKeyNames.Length;
                     });
 
                     // Set up a dummy callback because COM stuff goes haywire for particular handlers if we supply none
@@ -35,11 +44,11 @@ namespace Burnbytes.Forms
                         var evp = CleanupApi.InitializeHandler(subKeyNames[i], Preferences.SelectedDrive.Letter);
                         if (evp != null)
                         {
-                            if (LblHandler.IsHandleCreated)
+                            if (lblCurrentHandler.IsHandleCreated)
                                 Invoke((MethodInvoker)delegate
                                 {
-                                    LblHandler.Text = evp.DisplayName;
-                                    PrgScan.Value = i + 1;
+                                    lblCurrentHandler.Text = evp.DisplayName;
+                                    pgrScanning.Value = i + 1;
                                 });
                             int spaceResult = evp.Instance.GetSpaceUsed(out long spaceUsed, callBacks);
                             if (spaceResult < 0 || (spaceUsed == 0 &&
