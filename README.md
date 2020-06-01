@@ -36,7 +36,7 @@ alt="GitHub issues">
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://github.com/mirinsoft/burnbytes/blob/master/burnbytes.png)
+![screenshot](https://github.com/mirinsoft/burnbytes/blob/master/assets/burnbytes.png)
 
 ## Why
 
