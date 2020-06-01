@@ -55,10 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api.cs" />
-    <Compile Include="IconExtensions.cs" />
-    <Compile Include="NativeMethods.cs" />
-    <Compile Include="Preferences.cs" />
+    <Compile Include="Core\CallbackFlags.cs" />
+    <Compile Include="Core\CleanupHandler.cs" />
+    <Compile Include="Core\CleanupApi.cs" />
+    <Compile Include="Core\IconExtensions.cs" />
+    <Compile Include="Core\Native\NativeMethods.cs" />
+    <Compile Include="Core\Preferences.cs" />
+    <Compile Include="Core\Native\IEmptyVolumeCache.cs" />
+    <Compile Include="Core\Native\IEmptyVolumeCache2.cs" />
+    <Compile Include="Core\Native\IEmptyVolumeCacheCallBack.cs" />
+    <Compile Include="Core\Native\IPropertyBag.cs" />
+    <Compile Include="Core\DriveStrings.cs" />
+    <Compile Include="Core\EmptyVolumeCacheCallBacks.cs" />
+    <Compile Include="Core\DDCFlags.cs" />
+    <Compile Include="Core\HandlerFlags.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -66,45 +76,48 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Cleaner.cs">
+    <Compile Include="Forms\Cleaner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Cleaner.Designer.cs">
+    <Compile Include="Forms\Cleaner.Designer.cs">
       <DependentUpon>Cleaner.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\DriveSelection.cs">
+    <Compile Include="Forms\DriveSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DriveSelection.Designer.cs">
+    <Compile Include="Forms\DriveSelection.Designer.cs">
       <DependentUpon>DriveSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\HandlerChoice.cs">
+    <Compile Include="Forms\HandlerChoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\HandlerChoice.Designer.cs">
+    <Compile Include="Forms\HandlerChoice.Designer.cs">
       <DependentUpon>HandlerChoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Scanner.cs">
+    <Compile Include="Forms\Scanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Scanner.Designer.cs">
+    <Compile Include="Forms\Scanner.Designer.cs">
       <DependentUpon>Scanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Native\SHFILEINFO.cs" />
+    <Compile Include="Core\ScanProgressChangedEventArgs.cs" />
+    <Compile Include="Core\PurgeProgressChangedEventArgs.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Cleaner.resx">
+    <EmbeddedResource Include="Forms\Cleaner.resx">
       <DependentUpon>Cleaner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DriveSelection.resx">
+    <EmbeddedResource Include="Forms\DriveSelection.resx">
       <DependentUpon>DriveSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\HandlerChoice.resx">
+    <EmbeddedResource Include="Forms\HandlerChoice.resx">
       <DependentUpon>HandlerChoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Scanner.resx">
+    <EmbeddedResource Include="Forms\Scanner.resx">
       <DependentUpon>Scanner.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />

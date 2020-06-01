@@ -6,36 +6,42 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Windows.Forms;
 
-namespace Comet.UI
+namespace Burnbytes.Forms
 {
     public partial class HandlerChoice : Form
     {
         public HandlerChoice()
         {
             InitializeComponent();
+
             Text += Preferences.SelectedDrive.Name;
+
             // Check if we are running as administrator, if yes, give the elevation button a shield
-            using (WindowsIdentity identity = WindowsIdentity.GetCurrent())
+            using (var identity = WindowsIdentity.GetCurrent())
             {
-                WindowsPrincipal principal = new WindowsPrincipal(identity);
+                var principal = new WindowsPrincipal(identity);
                 if (principal.IsInRole(WindowsBuiltInRole.Administrator))
                     LblElevate.Visible = false;
                 else
                     NativeMethods.SendMessage(LblElevate.Handle, 0x160C, 0, 1);
             }
-            ImageList il = new ImageList
+
+            var il = new ImageList
             {
                 ColorDepth = ColorDepth.Depth32Bit,
                 // Get proper sizes for small icon lists on different DPIs, 49 = SM_CXSMICON, 50 = SM_CYSMICON
                 ImageSize = new Size(NativeMethods.GetSystemMetrics(49), NativeMethods.GetSystemMetrics(50))
             };
             il.Images.Add(GetIconFromLib("imageres.dll", 2));
-            Dictionary<string, int> IconListIndexForHint = new Dictionary<string, int>();
+
+            var IconListIndexForHint = new Dictionary<string, int>();
             long totalSpaceUsed = 0;
-            for (int i = 0; i < Preferences.CleanupHandlers.Count; i++)
+
+            for (var i = 0; i < Preferences.CleanupHandlers.Count; i++)
             {
-                CleanupHandler oHandler = Preferences.CleanupHandlers[i];
+                var oHandler = Preferences.CleanupHandlers[i];
                 totalSpaceUsed += oHandler.BytesUsed;
+
                 if (oHandler.IconHint != null)
                 {
                     // Reuse already loaded icon
@@ -74,10 +80,11 @@ namespace Comet.UI
             // Some GUI options
             BtnCheckAll.Text = "\u2611"; // Ballot box with check
 
-            Api.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
-            for (int i = 0; i < Preferences.CleanupHandlers.Count; i++)
+            CleanupApi.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
+
+            for (var i = 0; i < Preferences.CleanupHandlers.Count; i++)
             {
-                CleanupHandler oHandler = Preferences.CleanupHandlers[i];
+                var oHandler = Preferences.CleanupHandlers[i];
                 LvwHandlers.Items.Add(new ListViewItem(new[] { oHandler.DisplayName, NiceSize(oHandler.BytesUsed) }) { ImageIndex = (int)oHandler.IconHint, Tag = i, Checked = oHandler.StateFlag });
                 LvwHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 LvwHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -104,7 +111,7 @@ namespace Comet.UI
         private void CalculateSelectedSavings()
         {
             Preferences.CurrentSelectionSavings = 0;
-            for (int i = 0; i < LvwHandlers.Items.Count; i++)
+            for (var i = 0; i < LvwHandlers.Items.Count; i++)
             {
                 if (LvwHandlers.Items[i].Checked)
                     Preferences.CurrentSelectionSavings += Preferences.CleanupHandlers[(int)LvwHandlers.Items[i].Tag].BytesUsed;
@@ -114,8 +121,8 @@ namespace Comet.UI
 
         private string NiceSize(long bytes)
         {
-            string[] norm = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-            int count = norm.Length - 1;
+            var norm = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+            var count = norm.Length - 1;
             decimal size = bytes;
             int x = 0;
 
@@ -166,7 +173,7 @@ namespace Comet.UI
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            DialogResult dlgRes = MessageBox.Show("Are you sure you want to permanently delete these files?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            var dlgRes = MessageBox.Show("Are you sure you want to permanently delete these files?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (dlgRes == DialogResult.Yes)
             {
                 int removedCount = 0;
@@ -176,7 +183,7 @@ namespace Comet.UI
                     if (!LblElevate.Visible)
                     {
                         cHandler.StateFlag = LvwHandlers.Items[i].Checked;
-                        Api.UpdateHandlerStateFlag(cHandler);
+                        CleanupApi.UpdateHandlerStateFlag(cHandler);
                     }
                     // Get rid of handlers that we won't need early on
                     if (!LvwHandlers.Items[i].Checked)
@@ -187,7 +194,7 @@ namespace Comet.UI
                         removedCount++;
                     }
                 }
-                Api.DeactivateHandlers(Preferences.CleanupHandlers);
+                CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
                 Preferences.ProcessPurge = true;
                 Close();
             }
@@ -228,7 +235,7 @@ namespace Comet.UI
 
         private void LblMainMenu_Click(object sender, EventArgs e)
         {
-            this.contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
+            contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
         }
 
         private void BtnCheckAll_CheckedChanged(object sender, EventArgs e)
@@ -239,4 +246,4 @@ namespace Comet.UI
 
     }
 
- }
+}

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Comet.UI
+namespace Burnbytes.Forms
 {
     public partial class Cleaner : Form
     {
@@ -22,8 +21,9 @@ namespace Comet.UI
             InitializeComponent();
             LblClnUp.Text += Preferences.SelectedDrive.Name;
             LblHandler.Text = $"{Preferences.CleanupHandlers[0].DisplayName} (Preparing...)";
-            HandlerThread = new Thread(new ThreadStart(() => {
-                Api.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
+            HandlerThread = new Thread(new ThreadStart(() =>
+            {
+                CleanupApi.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
                 // Set up a callback for progress reporting
                 CallBacks = new EmptyVolumeCacheCallBacks();
                 CallBacks.PurgeProgressChanged += CallBacks_PurgeProgressChanged;
@@ -36,7 +36,8 @@ namespace Comet.UI
                         RunProcHint(CurrentHandler.PreProcHint);
                     LastHandlerPercent = 0;
                     if (i > 0 && LblHandler.IsHandleCreated)
-                        Invoke((MethodInvoker)delegate {
+                        Invoke((MethodInvoker)delegate
+                        {
                             LblHandler.Text = $"{CurrentHandler.DisplayName} (Preparing...)";
                         });
                     int spaceResult = CurrentHandler.Instance.GetSpaceUsed(out long newSpaceUsed, CallBacks);
@@ -59,9 +60,10 @@ namespace Comet.UI
                         break;
                 }
                 ProcessingHandlers = false;
-                Api.DeactivateHandlers(Preferences.CleanupHandlers);
+                CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
                 // A (stupid?) way to close the form once we are done cleaning
-                Invoke((MethodInvoker)delegate {
+                Invoke((MethodInvoker)delegate
+                {
                     Close();
                 });
             }));
@@ -100,7 +102,8 @@ namespace Comet.UI
         private void ReportLastHandlerPercent()
         {
             if (LblHandler.IsHandleCreated)
-                Invoke((MethodInvoker)delegate {
+                Invoke((MethodInvoker)delegate
+                {
                     LblHandler.Text = $"{CurrentHandler.DisplayName} ({LastHandlerPercent}%)";
                 });
         }
@@ -108,7 +111,8 @@ namespace Comet.UI
         private void ReportLastTotalPercent()
         {
             if (PrgClean.IsHandleCreated)
-                Invoke((MethodInvoker)delegate {
+                Invoke((MethodInvoker)delegate
+                {
                     PrgClean.Value = LastTotalPercent;
                 });
         }

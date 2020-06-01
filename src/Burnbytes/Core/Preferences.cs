@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Comet
+namespace Burnbytes
 {
     public static class Preferences
     {

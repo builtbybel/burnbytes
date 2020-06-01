@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Comet
+namespace Burnbytes
 {
     internal static class NativeMethods
     {
@@ -24,24 +24,4 @@ namespace Comet
         [DllImport("user32.dll")]
         internal static extern int DestroyIcon(IntPtr hIcon);
     }
-
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    internal struct SHFILEINFO
-    {
-        internal SHFILEINFO(bool b)
-        {
-            hIcon = IntPtr.Zero;
-            iIcon = 0;
-            dwAttributes = 0;
-            szDisplayName = "";
-            szTypeName = "";
-        }
-        internal IntPtr hIcon;
-        internal int iIcon;
-        internal uint dwAttributes;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-        internal string szDisplayName;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 80)]
-        internal string szTypeName;
-    };
 }

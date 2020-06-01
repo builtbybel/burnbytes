@@ -1,4 +1,4 @@
-﻿namespace Comet.UI
+﻿namespace Burnbytes.Forms
 {
     partial class DriveSelection
     {

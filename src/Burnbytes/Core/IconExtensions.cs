@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Reflection;
 
-namespace Comet
+namespace Burnbytes
 {
     public static class IconExtensions
     {
