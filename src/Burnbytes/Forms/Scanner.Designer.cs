@@ -39,65 +39,65 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // LblIntro
+            // lblDescription
             // 
             this.lblDescription.Location = new System.Drawing.Point(47, 11);
-            this.lblDescription.Name = "LblIntro";
+            this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(276, 41);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Burnbytes is calculating how much space you will be able to free on {0}. This may" +
     " take a few minutes to complete.";
             // 
-            // LblCalc
+            // lblCalculation
             // 
             this.lblCalculation.AutoSize = true;
             this.lblCalculation.Location = new System.Drawing.Point(8, 60);
-            this.lblCalculation.Name = "LblCalc";
+            this.lblCalculation.Name = "lblCalculation";
             this.lblCalculation.Size = new System.Drawing.Size(68, 13);
             this.lblCalculation.TabIndex = 1;
             this.lblCalculation.Text = "Calculating...";
             // 
-            // PrgScan
+            // pgrScanning
             // 
             this.pgrScanning.Location = new System.Drawing.Point(11, 78);
-            this.pgrScanning.Name = "PrgScan";
+            this.pgrScanning.Name = "pgrScanning";
             this.pgrScanning.Size = new System.Drawing.Size(227, 13);
             this.pgrScanning.TabIndex = 2;
             // 
-            // BtnCancel
+            // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancel.Location = new System.Drawing.Point(249, 70);
-            this.btnCancel.Name = "BtnCancel";
+            this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // LblScan
+            // lblScanning
             // 
             this.lblScanning.AutoSize = true;
             this.lblScanning.Location = new System.Drawing.Point(8, 96);
-            this.lblScanning.Name = "LblScan";
+            this.lblScanning.Name = "lblScanning";
             this.lblScanning.Size = new System.Drawing.Size(55, 13);
             this.lblScanning.TabIndex = 4;
             this.lblScanning.Text = "Scanning:";
             // 
-            // LblHandler
+            // lblCurrentHandler
             // 
             this.lblCurrentHandler.AutoSize = true;
             this.lblCurrentHandler.Location = new System.Drawing.Point(63, 96);
-            this.lblCurrentHandler.Name = "LblHandler";
+            this.lblCurrentHandler.Name = "lblCurrentHandler";
             this.lblCurrentHandler.Size = new System.Drawing.Size(0, 13);
             this.lblCurrentHandler.TabIndex = 5;
             // 
-            // PtbLogo
+            // ptbLogo
             // 
-            this.ptbLogo.Image = ((System.Drawing.Image)(resources.GetObject("PtbLogo.Image")));
-            this.ptbLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("PtbLogo.InitialImage")));
+            this.ptbLogo.Image = ((System.Drawing.Image)(resources.GetObject("ptbLogo.Image")));
+            this.ptbLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbLogo.InitialImage")));
             this.ptbLogo.Location = new System.Drawing.Point(11, 11);
-            this.ptbLogo.Name = "PtbLogo";
+            this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(32, 32);
             this.ptbLogo.TabIndex = 6;
             this.ptbLogo.TabStop = false;
@@ -106,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(335, 114);
             this.Controls.Add(this.ptbLogo);
             this.Controls.Add(this.lblCurrentHandler);

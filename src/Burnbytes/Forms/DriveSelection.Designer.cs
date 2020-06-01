@@ -75,7 +75,6 @@
             this.BtnOk.TabIndex = 1;
             this.BtnOk.Text = "OK";
             this.BtnOk.UseVisualStyleBackColor = true;
-            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // BtnExit
             // 
@@ -88,7 +87,7 @@
             this.BtnExit.TabIndex = 2;
             this.BtnExit.Text = "E&xit";
             this.BtnExit.UseVisualStyleBackColor = true;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+
             // 
             // DriveSelection
             // 

@@ -68,5 +68,32 @@ namespace Burnbytes.Properties {
                 return ResourceManager.GetString("Button_Cancel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
+        /// </summary>
+        internal static string Label_Calculating {
+            get {
+                return ResourceManager.GetString("Label_Calculating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete. ähnelt.
+        /// </summary>
+        internal static string Label_Scanner_Description {
+            get {
+                return ResourceManager.GetString("Label_Scanner_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Scanning: ähnelt.
+        /// </summary>
+        internal static string Label_Scanning {
+            get {
+                return ResourceManager.GetString("Label_Scanning", resourceCulture);
+            }
+        }
     }
 }

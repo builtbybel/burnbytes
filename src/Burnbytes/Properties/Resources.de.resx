@@ -120,4 +120,13 @@
   <data name="Button_Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
+  <data name="Label_Calculating" xml:space="preserve">
+    <value>Berechnen...</value>
+  </data>
+  <data name="Label_Scanning" xml:space="preserve">
+    <value>Überprüfe:</value>
+  </data>
+  <data name="Label_Scanner_Description" xml:space="preserve">
+    <value>Burnbytes berechnet wie viel Speicher auf {0} freigegeben werden kann. Dieser Vorgang kann einige Minuten dauern.</value>
+  </data>
 </root>

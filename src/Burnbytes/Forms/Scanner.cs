@@ -10,12 +10,25 @@ namespace Burnbytes.Forms
 {
     public partial class Scanner : Form
     {
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            if (HandlerThread.ThreadState == ThreadState.Running)
+            {
+                HandlerThread.Abort();
+            }
+
+            base.OnFormClosed(e);
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            lblDescription.Text = string.Format(lblDescription.Text, Preferences.SelectedDrive.Name);
+            lblDescription.Text = string.Format(Resources.Label_Scanner_Description, Preferences.SelectedDrive.Name);
             btnCancel.Text = Resources.Button_Cancel;
+            lblCalculation.Text = Resources.Label_Calculating;
+            lblScanning.Text = Resources.Label_Scanning;
+
         }
 
         private readonly Thread HandlerThread;
@@ -23,14 +36,14 @@ namespace Burnbytes.Forms
         public Scanner()
         {
             InitializeComponent();
-            
+
             HandlerThread = new Thread(new ThreadStart(() =>
             {
                 Preferences.CleanupHandlers = new List<CleanupHandler>();
                 using (var rKey = Registry.LocalMachine.OpenSubKey(CleanupApi.VolumeCacheStoreKey, false))
                 {
                     var subKeyNames = rKey.GetSubKeyNames();
-                    
+
                     // Adjust progress bar maximum to discovered handler count
                     Invoke((MethodInvoker)delegate
                     {
@@ -71,7 +84,7 @@ namespace Burnbytes.Forms
                 // Sort handlers by priority, making sure they'll run in correct order
                 Preferences.CleanupHandlers.Sort((x, y) => y.Priority.CompareTo(x.Priority));
                 // A (stupid?) way to close the form once we are done cleaning
-                
+
                 Invoke((MethodInvoker)delegate
                 {
                     Close();
@@ -79,12 +92,6 @@ namespace Burnbytes.Forms
             }));
             HandlerThread.SetApartmentState(ApartmentState.STA);
             HandlerThread.Start();
-        }
-
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            HandlerThread.Abort();
-            Close();
         }
     }
 }

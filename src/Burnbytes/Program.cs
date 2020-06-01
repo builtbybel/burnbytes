@@ -21,10 +21,56 @@ namespace Burnbytes
             Application.SetCompatibleTextRenderingDefault(false);
 
             if (Environment.OSVersion.Version.Build < 9200)
-                MessageBox.Show("You're running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available.", "Managed Disk Cleanup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                MessageBox.Show("You're running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available.", "Burnbytes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
+
+            Preferences.SelectedDrive = InitializeSelectedDrive();
+
+            if (Preferences.SelectedDrive is null) return;
+
+            ShowForm(new Scanner());
+
+            if (Preferences.CleanupHandlers != null && Preferences.CleanupHandlers.Any())
+            {
+                ShowForm(new HandlerChoice());
+
+                if (Preferences.ProcessPurge)
+                {
+                    ShowForm(new Cleaner());
+                }
+            }
+        }
+
+        static DriveStrings InitializeSelectedDrive()
+        {
+            var availableDrives = LoadAvailableDrives();
+
+            if (availableDrives.Count > 1)
+            {
+                using (var driveSelection = new DriveSelection(availableDrives))
+                {
+                    Application.Run(driveSelection);
+
+                    return driveSelection.SelectedDrive;
+                }
+            }
+
+            return availableDrives[0];
+        }
+
+        static void ShowForm(Form form)
+        {
+            using (form)
+            {
+                Application.Run(form);
+            }
+        }
+
+        static List<DriveStrings> LoadAvailableDrives()
+        {
             var availableDrives = new List<DriveStrings>();
-
 
             foreach (var di in DriveInfo.GetDrives())
             {
@@ -37,31 +83,9 @@ namespace Burnbytes
                     });
                 }
             }
-            if (availableDrives.Count > 1)
-            {
-                using (var driveSel = new DriveSelection(availableDrives))
-                    Application.Run(driveSel);
 
-                if (Preferences.SelectedDrive == null)
-                    return;
-            }
-            else
-                Preferences.SelectedDrive = availableDrives[0];
-
-            using (var scanner = new Scanner())
-                Application.Run(scanner);
-
-            if (Preferences.CleanupHandlers != null && Preferences.CleanupHandlers.Any())
-            {
-                using (var choice = new HandlerChoice())
-                    Application.Run(choice);
-
-                if (!Preferences.ProcessPurge)
-                    return;
-
-                using (var cleaner = new Cleaner())
-                    Application.Run(cleaner);
-            }
+            return availableDrives;
         }
+
     }
 }
