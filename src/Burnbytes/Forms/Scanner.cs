@@ -24,7 +24,8 @@ namespace Burnbytes.Forms
         {
             base.OnLoad(e);
 
-            lblDescription.Text = string.Format(Resources.Label_Scanner_Description, Preferences.SelectedDrive.Name);
+            Text = Application.ProductName;
+            lblDescription.Text = Resources.Label_Scanner_Description.Format(Preferences.SelectedDrive.Name);
             btnCancel.Text = Resources.Button_Cancel;
             lblCalculation.Text = Resources.Label_Calculating;
             lblScanning.Text = Resources.Label_Scanning;
@@ -40,9 +41,9 @@ namespace Burnbytes.Forms
             HandlerThread = new Thread(new ThreadStart(() =>
             {
                 Preferences.CleanupHandlers = new List<CleanupHandler>();
-                using (var rKey = Registry.LocalMachine.OpenSubKey(CleanupApi.VolumeCacheStoreKey, false))
+                using (var registryKey = Registry.LocalMachine.OpenSubKey(CleanupApi.VolumeCacheStoreKey, false))
                 {
-                    var subKeyNames = rKey.GetSubKeyNames();
+                    var subKeyNames = registryKey.GetSubKeyNames();
 
                     // Adjust progress bar maximum to discovered handler count
                     Invoke((MethodInvoker)delegate
@@ -52,37 +53,42 @@ namespace Burnbytes.Forms
 
                     // Set up a dummy callback because COM stuff goes haywire for particular handlers if we supply none
                     var callBacks = new EmptyVolumeCacheCallBacks();
-                    for (int i = 0; i < subKeyNames.Length; i++)
+
+                    for (var i = 0; i < subKeyNames.Length; i++)
                     {
-                        var evp = CleanupApi.InitializeHandler(subKeyNames[i], Preferences.SelectedDrive.Letter);
-                        if (evp != null)
+                        var cleanupHandler = CleanupApi.InitializeHandler(subKeyNames[i], Preferences.SelectedDrive.Letter);
+                        if (cleanupHandler != null)
                         {
                             if (lblCurrentHandler.IsHandleCreated)
                                 Invoke((MethodInvoker)delegate
                                 {
-                                    lblCurrentHandler.Text = evp.DisplayName;
+                                    lblCurrentHandler.Text = cleanupHandler.DisplayName;
                                     pgrScanning.Value = i + 1;
                                 });
-                            int spaceResult = evp.Instance.GetSpaceUsed(out long spaceUsed, callBacks);
+
+                            var spaceResult = cleanupHandler.Instance.GetSpaceUsed(out long spaceUsed, callBacks);
                             if (spaceResult < 0 || (spaceUsed == 0 &&
-                                ((evp.Flags & HandlerFlags.DontShowIfZero) == HandlerFlags.DontShowIfZero ||
-                                (evp.DataDrivenFlags & DDCFlags.DontShowIfZero) == DDCFlags.DontShowIfZero)))
+                                ((cleanupHandler.Flags & HandlerFlags.DontShowIfZero) == HandlerFlags.DontShowIfZero ||
+                                (cleanupHandler.DataDrivenFlags & DDCFlags.DontShowIfZero) == DDCFlags.DontShowIfZero)))
                             {
-                                try { evp.Instance.Deactivate(out uint dummy); } catch { }
-                                Marshal.FinalReleaseComObject(evp.Instance);
+                                try { cleanupHandler.Instance.Deactivate(out uint dummy); } catch { }
+                                Marshal.FinalReleaseComObject(cleanupHandler.Instance);
                             }
                             else
                             {
-                                evp.BytesUsed = spaceUsed;
-                                Preferences.CleanupHandlers.Add(evp);
+                                cleanupHandler.BytesUsed = spaceUsed;
+                                Preferences.CleanupHandlers.Add(cleanupHandler);
                             }
                         }
                     }
                 }
+
                 CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
 
                 // Sort handlers by priority, making sure they'll run in correct order
                 Preferences.CleanupHandlers.Sort((x, y) => y.Priority.CompareTo(x.Priority));
+
+
                 // A (stupid?) way to close the form once we are done cleaning
 
                 Invoke((MethodInvoker)delegate
@@ -90,6 +96,7 @@ namespace Burnbytes.Forms
                     Close();
                 });
             }));
+
             HandlerThread.SetApartmentState(ApartmentState.STA);
             HandlerThread.Start();
         }

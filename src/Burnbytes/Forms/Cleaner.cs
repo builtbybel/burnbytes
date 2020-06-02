@@ -8,58 +8,69 @@ namespace Burnbytes.Forms
 {
     public partial class Cleaner : Form
     {
-        private Thread HandlerThread;
-        private long TotalBytesDeleted;
-        private int LastTotalPercent;
-        private EmptyVolumeCacheCallBacks CallBacks;
-        private bool ProcessingHandlers;
-        private int LastHandlerPercent;
-        private CleanupHandler CurrentHandler;
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            lblCleanup.Text += Preferences.SelectedDrive.Name;
+
+        }
+
+
+        private readonly Thread _thread;
+        private long _totalBytesDeleted;
+        private int _lastTotalPercent;
+        private EmptyVolumeCacheCallBacks _callBacks;
+        private bool _processingHandlers;
+        private int _lastHandlerPercent;
+        private CleanupHandler _currentHandler;
 
         public Cleaner()
         {
             InitializeComponent();
-            LblClnUp.Text += Preferences.SelectedDrive.Name;
-            LblHandler.Text = $"{Preferences.CleanupHandlers[0].DisplayName} (Preparing...)";
-            HandlerThread = new Thread(new ThreadStart(() =>
+           
+            lblCurrentHandler.Text = $"{Preferences.CleanupHandlers[0].DisplayName} (Preparing...)";
+
+            _thread = new Thread(new ThreadStart(() =>
             {
                 CleanupApi.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
                 // Set up a callback for progress reporting
-                CallBacks = new EmptyVolumeCacheCallBacks();
-                CallBacks.PurgeProgressChanged += CallBacks_PurgeProgressChanged;
-                TotalBytesDeleted = 0;
-                ProcessingHandlers = true;
+                _callBacks = new EmptyVolumeCacheCallBacks();
+                _callBacks.PurgeProgressChanged += CallBacks_PurgeProgressChanged;
+                _totalBytesDeleted = 0;
+                _processingHandlers = true;
                 for (int i = 0; i < Preferences.CleanupHandlers.Count; i++)
                 {
-                    CurrentHandler = Preferences.CleanupHandlers[i];
-                    if (CurrentHandler.PreProcHint != null)
-                        RunProcHint(CurrentHandler.PreProcHint);
-                    LastHandlerPercent = 0;
-                    if (i > 0 && LblHandler.IsHandleCreated)
+                    _currentHandler = Preferences.CleanupHandlers[i];
+                    if (_currentHandler.PreProcHint != null)
+                        RunProcHint(_currentHandler.PreProcHint);
+                    _lastHandlerPercent = 0;
+                    if (i > 0 && lblCurrentHandler.IsHandleCreated)
                         Invoke((MethodInvoker)delegate
                         {
-                            LblHandler.Text = $"{CurrentHandler.DisplayName} (Preparing...)";
+                            lblCurrentHandler.Text = $"{_currentHandler.DisplayName} (Preparing...)";
                         });
-                    int spaceResult = CurrentHandler.Instance.GetSpaceUsed(out long newSpaceUsed, CallBacks);
+                    int spaceResult = _currentHandler.Instance.GetSpaceUsed(out long newSpaceUsed, _callBacks);
                     if (spaceResult >= 0)
                     {
-                        Preferences.CurrentSelectionSavings = Preferences.CurrentSelectionSavings - CurrentHandler.BytesUsed + newSpaceUsed;
-                        CurrentHandler.BytesUsed = newSpaceUsed;
+                        Preferences.CurrentSelectionSavings = Preferences.CurrentSelectionSavings - _currentHandler.BytesUsed + newSpaceUsed;
+                        _currentHandler.BytesUsed = newSpaceUsed;
                         ReportLastHandlerPercent();
-                        int purgeResult = CurrentHandler.Instance.Purge(CurrentHandler.BytesUsed, CallBacks);
+                        int purgeResult = _currentHandler.Instance.Purge(_currentHandler.BytesUsed, _callBacks);
                         if (purgeResult == -2147467260) // -2147467260 = 0x80004004 = E_ABORT
                             break;
                         if (purgeResult < 0 && purgeResult != -2147287022) // -2147287022 == 0x80030012 == STG_E_NOMOREFILES
-                            MessageBox.Show("Purging " + CurrentHandler.DisplayName + " failed with error 0x" + purgeResult.ToString("x8"), Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (CurrentHandler.PostProcHint != null)
-                            RunProcHint(CurrentHandler.PostProcHint);
+                            MessageBox.Show("Purging " + _currentHandler.DisplayName + " failed with error 0x" + purgeResult.ToString("x8"), Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (_currentHandler.PostProcHint != null)
+                            RunProcHint(_currentHandler.PostProcHint);
                     }
-                    try { CurrentHandler.Instance.Deactivate(out uint dummy); } catch { }
-                    Marshal.FinalReleaseComObject(CurrentHandler.Instance);
+                    try { _currentHandler.Instance.Deactivate(out uint dummy); } catch { }
+                    Marshal.FinalReleaseComObject(_currentHandler.Instance);
                     if (spaceResult < 0)
                         break;
                 }
-                ProcessingHandlers = false;
+                _processingHandlers = false;
                 CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
                 // A (stupid?) way to close the form once we are done cleaning
                 Invoke((MethodInvoker)delegate
@@ -67,33 +78,33 @@ namespace Burnbytes.Forms
                     Close();
                 });
             }));
-            HandlerThread.SetApartmentState(ApartmentState.STA);
-            HandlerThread.Start();
+            _thread.SetApartmentState(ApartmentState.STA);
+            _thread.Start();
         }
 
         private void CallBacks_PurgeProgressChanged(object sender, PurgeProgressChangedEventArgs e)
         {
             if (Preferences.CurrentSelectionSavings > 0)
             {
-                int ctPerc = (int)((double)(TotalBytesDeleted + e.SpaceFreed) / Preferences.CurrentSelectionSavings * 100);
-                if (ctPerc != LastTotalPercent)
+                int ctPerc = (int)((double)(_totalBytesDeleted + e.SpaceFreed) / Preferences.CurrentSelectionSavings * 100);
+                if (ctPerc != _lastTotalPercent)
                 {
-                    LastTotalPercent = ctPerc;
+                    _lastTotalPercent = ctPerc;
                     ReportLastTotalPercent();
                 }
-                if (CurrentHandler.BytesUsed > 0)
+                if (_currentHandler.BytesUsed > 0)
                 {
-                    int hPerc = Preferences.CleanupHandlers.Count == 1 ? ctPerc : (int)((double)e.SpaceFreed / CurrentHandler.BytesUsed * 100);
-                    if (hPerc != LastHandlerPercent)
+                    int hPerc = Preferences.CleanupHandlers.Count == 1 ? ctPerc : (int)((double)e.SpaceFreed / _currentHandler.BytesUsed * 100);
+                    if (hPerc != _lastHandlerPercent)
                     {
-                        LastHandlerPercent = hPerc;
+                        _lastHandlerPercent = hPerc;
                         ReportLastHandlerPercent();
                     }
                 }
                 if (e.Flags == CallbackFlags.LastNotification)
                 {
-                    TotalBytesDeleted += CurrentHandler.BytesUsed;
-                    LastTotalPercent = (int)((double)TotalBytesDeleted / Preferences.CurrentSelectionSavings * 100);
+                    _totalBytesDeleted += _currentHandler.BytesUsed;
+                    _lastTotalPercent = (int)((double)_totalBytesDeleted / Preferences.CurrentSelectionSavings * 100);
                     ReportLastTotalPercent();
                 }
             }
@@ -101,19 +112,19 @@ namespace Burnbytes.Forms
 
         private void ReportLastHandlerPercent()
         {
-            if (LblHandler.IsHandleCreated)
+            if (lblCurrentHandler.IsHandleCreated)
                 Invoke((MethodInvoker)delegate
                 {
-                    LblHandler.Text = $"{CurrentHandler.DisplayName} ({LastHandlerPercent}%)";
+                    lblCurrentHandler.Text = $"{_currentHandler.DisplayName} ({_lastHandlerPercent}%)";
                 });
         }
 
         private void ReportLastTotalPercent()
         {
-            if (PrgClean.IsHandleCreated)
+            if (prgCleaning.IsHandleCreated)
                 Invoke((MethodInvoker)delegate
                 {
-                    PrgClean.Value = LastTotalPercent;
+                    prgCleaning.Value = _lastTotalPercent;
                 });
         }
 
@@ -160,11 +171,11 @@ namespace Burnbytes.Forms
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            if (HandlerThread.IsAlive && ProcessingHandlers)
-                CallBacks.Abort = true;
+            if (_thread.IsAlive && _processingHandlers)
+                _callBacks.Abort = true;
             else
             {
-                HandlerThread.Abort();
+                _thread.Abort();
                 Close();
             }
         }

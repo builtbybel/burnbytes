@@ -70,11 +70,47 @@ namespace Burnbytes.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
+        /// </summary>
+        internal static string Button_Exit {
+            get {
+                return ResourceManager.GetString("Button_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        internal static string Button_Ok {
+            get {
+                return ResourceManager.GetString("Button_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
         /// </summary>
         internal static string Label_Calculating {
             get {
                 return ResourceManager.GetString("Label_Calculating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select the drive you want to clean up. ähnelt.
+        /// </summary>
+        internal static string Label_DriveSelection_Description {
+            get {
+                return ResourceManager.GetString("Label_DriveSelection_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Drives ähnelt.
+        /// </summary>
+        internal static string Label_DriveSelection_Drives {
+            get {
+                return ResourceManager.GetString("Label_DriveSelection_Drives", resourceCulture);
             }
         }
         

@@ -29,89 +29,89 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cleaner));
-            this.LblIntro = new System.Windows.Forms.Label();
-            this.LblClnUp = new System.Windows.Forms.Label();
-            this.PrgClean = new System.Windows.Forms.ProgressBar();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.LblClean = new System.Windows.Forms.Label();
-            this.LblHandler = new System.Windows.Forms.Label();
-            this.PtbLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLogo)).BeginInit();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblCleanup = new System.Windows.Forms.Label();
+            this.prgCleaning = new System.Windows.Forms.ProgressBar();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.LblCleaning = new System.Windows.Forms.Label();
+            this.lblCurrentHandler = new System.Windows.Forms.Label();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // LblIntro
             // 
-            this.LblIntro.Location = new System.Drawing.Point(48, 11);
-            this.LblIntro.Name = "LblIntro";
-            this.LblIntro.Size = new System.Drawing.Size(276, 41);
-            this.LblIntro.TabIndex = 0;
-            this.LblIntro.Text = "Burnbytes is cleaning up unnecessary files on your machine.";
+            this.lblDescription.Location = new System.Drawing.Point(48, 11);
+            this.lblDescription.Name = "LblIntro";
+            this.lblDescription.Size = new System.Drawing.Size(276, 41);
+            this.lblDescription.TabIndex = 0;
+            this.lblDescription.Text = "Burnbytes is cleaning up unnecessary files on your machine.";
             // 
             // LblClnUp
             // 
-            this.LblClnUp.AutoSize = true;
-            this.LblClnUp.Location = new System.Drawing.Point(8, 62);
-            this.LblClnUp.Name = "LblClnUp";
-            this.LblClnUp.Size = new System.Drawing.Size(92, 13);
-            this.LblClnUp.TabIndex = 1;
-            this.LblClnUp.Text = "Cleaning up drive ";
+            this.lblCleanup.AutoSize = true;
+            this.lblCleanup.Location = new System.Drawing.Point(8, 62);
+            this.lblCleanup.Name = "LblClnUp";
+            this.lblCleanup.Size = new System.Drawing.Size(92, 13);
+            this.lblCleanup.TabIndex = 1;
+            this.lblCleanup.Text = "Cleaning up drive ";
             // 
             // PrgClean
             // 
-            this.PrgClean.Location = new System.Drawing.Point(11, 78);
-            this.PrgClean.Name = "PrgClean";
-            this.PrgClean.Size = new System.Drawing.Size(227, 13);
-            this.PrgClean.TabIndex = 2;
+            this.prgCleaning.Location = new System.Drawing.Point(11, 78);
+            this.prgCleaning.Name = "PrgClean";
+            this.prgCleaning.Size = new System.Drawing.Size(227, 13);
+            this.prgCleaning.TabIndex = 2;
             // 
             // BtnCancel
             // 
-            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnCancel.Location = new System.Drawing.Point(249, 70);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancel.TabIndex = 3;
-            this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnCancel.Location = new System.Drawing.Point(249, 70);
+            this.btnCancel.Name = "BtnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LblClean
             // 
-            this.LblClean.AutoSize = true;
-            this.LblClean.Location = new System.Drawing.Point(8, 96);
-            this.LblClean.Name = "LblClean";
-            this.LblClean.Size = new System.Drawing.Size(51, 13);
-            this.LblClean.TabIndex = 4;
-            this.LblClean.Text = "Cleaning:";
+            this.LblCleaning.AutoSize = true;
+            this.LblCleaning.Location = new System.Drawing.Point(8, 96);
+            this.LblCleaning.Name = "LblClean";
+            this.LblCleaning.Size = new System.Drawing.Size(51, 13);
+            this.LblCleaning.TabIndex = 4;
+            this.LblCleaning.Text = "Cleaning:";
             // 
             // LblHandler
             // 
-            this.LblHandler.AutoSize = true;
-            this.LblHandler.Location = new System.Drawing.Point(63, 96);
-            this.LblHandler.Name = "LblHandler";
-            this.LblHandler.Size = new System.Drawing.Size(0, 13);
-            this.LblHandler.TabIndex = 5;
+            this.lblCurrentHandler.AutoSize = true;
+            this.lblCurrentHandler.Location = new System.Drawing.Point(63, 96);
+            this.lblCurrentHandler.Name = "LblHandler";
+            this.lblCurrentHandler.Size = new System.Drawing.Size(0, 13);
+            this.lblCurrentHandler.TabIndex = 5;
             // 
             // PtbLogo
             // 
-            this.PtbLogo.Image = ((System.Drawing.Image)(resources.GetObject("PtbLogo.Image")));
-            this.PtbLogo.Location = new System.Drawing.Point(11, 11);
-            this.PtbLogo.Name = "PtbLogo";
-            this.PtbLogo.Size = new System.Drawing.Size(32, 32);
-            this.PtbLogo.TabIndex = 6;
-            this.PtbLogo.TabStop = false;
+            this.ptbLogo.Image = ((System.Drawing.Image)(resources.GetObject("PtbLogo.Image")));
+            this.ptbLogo.Location = new System.Drawing.Point(11, 11);
+            this.ptbLogo.Name = "PtbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(32, 32);
+            this.ptbLogo.TabIndex = 6;
+            this.ptbLogo.TabStop = false;
             // 
             // Cleaner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(335, 114);
-            this.Controls.Add(this.PtbLogo);
-            this.Controls.Add(this.LblHandler);
-            this.Controls.Add(this.LblClean);
-            this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.PrgClean);
-            this.Controls.Add(this.LblClnUp);
-            this.Controls.Add(this.LblIntro);
+            this.Controls.Add(this.ptbLogo);
+            this.Controls.Add(this.lblCurrentHandler);
+            this.Controls.Add(this.LblCleaning);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.prgCleaning);
+            this.Controls.Add(this.lblCleanup);
+            this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -119,7 +119,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Burnbytes";
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,12 +127,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label LblIntro;
-        private System.Windows.Forms.Label LblClnUp;
-        private System.Windows.Forms.ProgressBar PrgClean;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Label LblClean;
-        private System.Windows.Forms.Label LblHandler;
-        private System.Windows.Forms.PictureBox PtbLogo;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblCleanup;
+        private System.Windows.Forms.ProgressBar prgCleaning;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label LblCleaning;
+        private System.Windows.Forms.Label lblCurrentHandler;
+        private System.Windows.Forms.PictureBox ptbLogo;
     }
 }

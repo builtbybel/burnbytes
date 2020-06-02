@@ -129,4 +129,16 @@
   <data name="Label_Scanner_Description" xml:space="preserve">
     <value>Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete.</value>
   </data>
+  <data name="Button_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Button_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Label_DriveSelection_Drives" xml:space="preserve">
+    <value>Drives</value>
+  </data>
+  <data name="Label_DriveSelection_Description" xml:space="preserve">
+    <value>Select the drive you want to clean up.</value>
+  </data>
 </root>
