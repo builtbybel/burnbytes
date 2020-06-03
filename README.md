@@ -74,7 +74,7 @@ My main goal would be a community cleaner like it has never existed before. Alba
 
 <!-- CONTRIBUTORS-LIST:START-->
 
- [<img src="https://avatars2.githubusercontent.com/u/26437097?v=3" width="100px;"/><br /><sub><b>Daniel Lutz</b></sub>](https://github.com/lutz)<br /
+ [<img src="https://avatars2.githubusercontent.com/u/26437097?v=3" width="100px;"/><br /><sub><b>Daniel Lutz</b></sub>](https://github.com/lutz)<br />
  >       
 <!-- CONTRIBUTORS-LIST:END -->
 
