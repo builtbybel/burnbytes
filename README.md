@@ -31,6 +31,7 @@ alt="GitHub issues">
   <a href="#why">Why</a> •
   <a href="#features">Features</a> •
   <a href="#download">Download</a> •
+  <a href="#contribute">Contributors</a> •	
   <a href="#contribute">Contribute</a> •	
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
@@ -68,6 +69,14 @@ More infos here http://www.mirinsoft.com/blog/19-apps/31-revival-of-microsoft-di
 Everybody who is interested in this project is welcome to help. I myself will not have much time and neither does albacore at the moment. I could imagine for the roadmap an integration of the community cleaner "winapp2.ini". Just quickly thought.
 
 My main goal would be a community cleaner like it has never existed before. Albacore has done a great preparatory job but there is still a lot to do. Comment, commit to the C# code and share this work.
+
+## ️💚️ Contributors 💚 
+
+<!-- CONTRIBUTORS-LIST:START-->
+
+ [<img src="https://avatars2.githubusercontent.com/u/26437097?v=3" width="100px;"/><br /><sub><b>Daniel Lutz</b></sub>](https://github.com/lutz)<br /
+ >       
+<!-- CONTRIBUTORS-LIST:END -->
 
 ## Credits
 
