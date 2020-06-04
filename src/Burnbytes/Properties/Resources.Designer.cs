@@ -63,72 +63,247 @@ namespace Burnbytes.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
         /// </summary>
-        internal static string Button_Cancel {
+        internal static string Cleaner_btnCancel {
             get {
-                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+                return ResourceManager.GetString("Cleaner_btnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning: ähnelt.
+        /// </summary>
+        internal static string Cleaner_lblCleaning {
+            get {
+                return ResourceManager.GetString("Cleaner_lblCleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning up drive  ähnelt.
+        /// </summary>
+        internal static string Cleaner_lblCleanup {
+            get {
+                return ResourceManager.GetString("Cleaner_lblCleanup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is cleaning up unnecessary files on your machine. ähnelt.
+        /// </summary>
+        internal static string Cleaner_lblDescription {
+            get {
+                return ResourceManager.GetString("Cleaner_lblDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
         /// </summary>
-        internal static string Button_Exit {
+        internal static string DriveSelection_btnExit {
             get {
-                return ResourceManager.GetString("Button_Exit", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_btnExit", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
         /// </summary>
-        internal static string Button_Ok {
+        internal static string DriveSelection_btnOk {
             get {
-                return ResourceManager.GetString("Button_Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
-        /// </summary>
-        internal static string Label_Calculating {
-            get {
-                return ResourceManager.GetString("Label_Calculating", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_btnOk", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Select the drive you want to clean up. ähnelt.
         /// </summary>
-        internal static string Label_DriveSelection_Description {
+        internal static string DriveSelection_lblDescription {
             get {
-                return ResourceManager.GetString("Label_DriveSelection_Description", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_lblDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Drives ähnelt.
         /// </summary>
-        internal static string Label_DriveSelection_Drives {
+        internal static string DriveSelection_lblDrives {
             get {
-                return ResourceManager.GetString("Label_DriveSelection_Drives", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_lblDrives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_btnRunCleaning {
+            get {
+                return ResourceManager.GetString("HandlerChoice_btnRunCleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Files to delete: ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_chkSelectAllHandlers {
+            get {
+                return ResourceManager.GetString("HandlerChoice_chkSelectAllHandlers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About this clean-up ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblAboutCurrentCleanupHandler {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblAboutCurrentCleanupHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die If you&apos;re low on space, we can try to clean up files using the settings on this page. ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblInformation {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You can use Disk Cleanup to free up to {0} of disk space on {1}. ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblIntroduction {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblIntroduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die More storage settings ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblShoreMoreSettings {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblShoreMoreSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View files ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblShowFilesInExplorer {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblShowFilesInExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Storage ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblStorage {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die System ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblSystem {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About {0} ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_tsMenuItemAbout {
+            get {
+                return ResourceManager.GetString("HandlerChoice_tsMenuItemAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} (Preparing...) ähnelt.
+        /// </summary>
+        internal static string Label_Preparing {
+            get {
+                return ResourceManager.GetString("Label_Preparing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0}
+        ///Aimed as open community cleaner!
+        ///Version {1}
+        ///
+        ///This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+        ///
+        ///This project is based upon Albacore&apos;s Managed Disk Cleanup
+        ///https://github.com/thebookisclosed/Comet
+        ///
+        ///(C#) 2019, thebookisclosed
+        ///https://twitter.com/thebookisclosed
+        ///
+        ///(C#) 2020, Belim 
+        ///www.miri [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string MessageBox_AboutApplication {
+            get {
+                return ResourceManager.GetString("MessageBox_AboutApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Are you sure you want to permanently delete these files? ähnelt.
+        /// </summary>
+        internal static string MessageBox_DeleteAllFilesReally {
+            get {
+                return ResourceManager.GetString("MessageBox_DeleteAllFilesReally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You&apos;re running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available. ähnelt.
+        /// </summary>
+        internal static string MessageBox_IncompleteSupportedOs {
+            get {
+                return ResourceManager.GetString("MessageBox_IncompleteSupportedOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string Scanner_btnCancel {
+            get {
+                return ResourceManager.GetString("Scanner_btnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
+        /// </summary>
+        internal static string Scanner_lblCalculation {
+            get {
+                return ResourceManager.GetString("Scanner_lblCalculation", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete. ähnelt.
         /// </summary>
-        internal static string Label_Scanner_Description {
+        internal static string Scanner_lblDescription {
             get {
-                return ResourceManager.GetString("Label_Scanner_Description", resourceCulture);
+                return ResourceManager.GetString("Scanner_lblDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Scanning: ähnelt.
         /// </summary>
-        internal static string Label_Scanning {
+        internal static string Scanner_lblScanning {
             get {
-                return ResourceManager.GetString("Label_Scanning", resourceCulture);
+                return ResourceManager.GetString("Scanner_lblScanning", resourceCulture);
             }
         }
     }

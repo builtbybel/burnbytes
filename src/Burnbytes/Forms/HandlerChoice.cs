@@ -1,29 +1,75 @@
-﻿using System;
+﻿using Burnbytes.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace Burnbytes.Forms
 {
-    public partial class HandlerChoice : Form
+    public partial class HandlerChoice : FormBase
     {
-        public HandlerChoice()
+        // Events
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            CleanupApi.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
+
+            InitializeListViewItems();
+
+            CalculateSelectedSavings();
+        }
+
+        protected override void OnLocalize()
+        {
+            base.OnLocalize();
+
+            Text += " " + Preferences.SelectedDrive.Name;
+
+            Resources.ResourceManager.Localize<HandlerChoice>
+                (
+                    lblStorage,
+                    lblInformation,
+                    lblSystem,
+                    chkSelectAllHandlers,
+                    lblAboutCurrentCleanupHandler,
+                    lblShowFilesInExplorer,
+                    lblShoreMoreSettings,
+                    btnRunCleaning
+                );
+
+
+            tsMenuItemAbout.Text = Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName);
+        }
+
+        protected override void OnApplicationIdle()
+        {
+            base.OnApplicationIdle();
+
+            lblIntroduction.Text = Resources.HandlerChoice_lblIntroduction.Format(Preferences.CurrentSelectionSavings.ToReadableString(), Preferences.SelectedDrive.Name);
+            btnRunCleaning.Enabled = lvCleanupHandlers.Items.OfType<ListViewItem>().Any(item => item.Checked);
+        }
+
+        // Conctructors
+
+        public HandlerChoice() : base()
         {
             InitializeComponent();
 
-            Text += Preferences.SelectedDrive.Name;
 
             // Check if we are running as administrator, if yes, give the elevation button a shield
             using (var identity = WindowsIdentity.GetCurrent())
             {
                 var principal = new WindowsPrincipal(identity);
                 if (principal.IsInRole(WindowsBuiltInRole.Administrator))
-                    LblElevate.Visible = false;
+                    lblShoreMoreSettings.Visible = false;
                 else
-                    NativeMethods.SendMessage(LblElevate.Handle, 0x160C, 0, 1);
+                    NativeMethods.SendMessage(lblShoreMoreSettings.Handle, 0x160C, 0, 1);
             }
 
             var il = new ImageList
@@ -71,68 +117,59 @@ namespace Burnbytes.Forms
                 else
                     oHandler.IconHint = 0;
             }
-            LblIntro.Text = string.Format(LblIntro.Text, NiceSize(totalSpaceUsed), Preferences.SelectedDrive.Name);
-            LvwHandlers.SmallImageList = il;
+            lblIntroduction.Text = string.Format(lblIntroduction.Text, totalSpaceUsed.ToReadableString(), Preferences.SelectedDrive.Name);
+            lvCleanupHandlers.SmallImageList = il;
         }
 
-        private void HandlerChoice_Load(object sender, EventArgs e)
+        // Nethods
+
+        private void InitializeListViewItems()
         {
-            // Some GUI options
-            BtnCheckAll.Text = "\u2611"; // Ballot box with check
-
-            CleanupApi.ReinstateHandlers(Preferences.CleanupHandlers, Preferences.SelectedDrive.Letter);
-
             for (var i = 0; i < Preferences.CleanupHandlers.Count; i++)
             {
-                var oHandler = Preferences.CleanupHandlers[i];
-                LvwHandlers.Items.Add(new ListViewItem(new[] { oHandler.DisplayName, NiceSize(oHandler.BytesUsed) }) { ImageIndex = (int)oHandler.IconHint, Tag = i, Checked = oHandler.StateFlag });
-                LvwHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                LvwHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                var cleanupHandler = Preferences.CleanupHandlers[i];
+                lvCleanupHandlers.Items.Add(new ListViewItem(new[] { cleanupHandler.DisplayName, cleanupHandler.BytesUsed.ToReadableString() }) { ImageIndex = (int)cleanupHandler.IconHint, Tag = cleanupHandler, Checked = cleanupHandler.StateFlag });
+                lvCleanupHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                lvCleanupHandlers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
-            CalculateSelectedSavings();
-            // Select first loaded handler so its description gets shown
-            LvwHandlers.SelectedIndices.Add(0);
+
+            lvCleanupHandlers.SelectedIndices.Add(0);
         }
 
         private void ScaleListViewColumns(ListView listview, SizeF factor)
         {
-            foreach (ColumnHeader column in listview.Columns)
+            foreach (var columnHeader in listview.Columns.OfType<ColumnHeader>())
             {
-                column.Width = (int)Math.Round(column.Width * factor.Width);
+                columnHeader.Width = (int)Math.Round(columnHeader.Width * factor.Width);
             }
         }
 
         protected override void ScaleControl(SizeF factor, BoundsSpecified specified)
         {
             base.ScaleControl(factor, specified);
-            ScaleListViewColumns(LvwHandlers, factor);
+            ScaleListViewColumns(lvCleanupHandlers, factor);
         }
 
         private void CalculateSelectedSavings()
         {
             Preferences.CurrentSelectionSavings = 0;
-            for (var i = 0; i < LvwHandlers.Items.Count; i++)
+
+            foreach (var listViewItem in lvCleanupHandlers.Items.OfType<ListViewItem>())
             {
-                if (LvwHandlers.Items[i].Checked)
-                    Preferences.CurrentSelectionSavings += Preferences.CleanupHandlers[(int)LvwHandlers.Items[i].Tag].BytesUsed;
+                if (listViewItem.Checked)
+                {
+                    Preferences.CurrentSelectionSavings += ((CleanupHandler)listViewItem.Tag).BytesUsed;
+                }
             }
-            LblSavingsNum.Text = NiceSize(Preferences.CurrentSelectionSavings);
+
+            lblSavingsNum.Text = Preferences.CurrentSelectionSavings.ToReadableString(); ;
         }
 
-        private string NiceSize(long bytes)
+        private void SetChkSelectAllCheckWithoutEvent(bool @checked)
         {
-            var norm = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-            var count = norm.Length - 1;
-            decimal size = bytes;
-            int x = 0;
-
-            while (size >= 1000 && x < count)
-            {
-                size /= 1024;
-                x++;
-            }
-
-            return string.Format($"{Math.Round(size, 2)} {norm[x]}", MidpointRounding.AwayFromZero);
+            chkSelectAllHandlers.CheckedChanged -= ChkSelectAllHandlers_CheckedChanged;
+            chkSelectAllHandlers.Checked = @checked;
+            chkSelectAllHandlers.CheckedChanged += ChkSelectAllHandlers_CheckedChanged;
         }
 
         private Icon GetIconFromLib(string file, int number)
@@ -149,101 +186,111 @@ namespace Burnbytes.Forms
                 return null;
         }
 
+        // EventHandler
+
         private void LvwHandlers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LvwHandlers.SelectedItems.Count > 0)
+            if (lvCleanupHandlers.SelectedItems.Count > 0)
             {
-                CleanupHandler oHandler = Preferences.CleanupHandlers[(int)LvwHandlers.SelectedItems[0].Tag];
-                LblDesc.Text = oHandler.Description;
-                if ((oHandler.Flags & HandlerFlags.HasSettings) == HandlerFlags.HasSettings)
+                var currentCleanupHandler = lvCleanupHandlers.SelectedItems[0].Tag as CleanupHandler;
+
+                lblDescriptionOfCurrentCleanupHandler.Text = currentCleanupHandler.Description;
+
+                if ((currentCleanupHandler.Flags & HandlerFlags.HasSettings) == HandlerFlags.HasSettings)
                 {
-                    if (oHandler.ButtonText != null)
-                        LblAdvanced.Text = oHandler.ButtonText;
-                    LblAdvanced.Visible = true;
+                    if (currentCleanupHandler.ButtonText != null)
+                        lblShowFilesInExplorer.Text = currentCleanupHandler.ButtonText;
+
+                    lblShowFilesInExplorer.Visible = true;
                 }
                 else
-                    LblAdvanced.Visible = false;
+                    lblShowFilesInExplorer.Visible = false;
             }
         }
 
         private void LvwHandlers_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CalculateSelectedSavings();
+
+            if (chkSelectAllHandlers.Checked && lvCleanupHandlers.Items.OfType<ListViewItem>().Any(item => !item.Checked))
+            {
+                SetChkSelectAllCheckWithoutEvent(false);
+            }
+
+            if (!chkSelectAllHandlers.Checked && lvCleanupHandlers.Items.OfType<ListViewItem>().All(item => item.Checked))
+            {
+                SetChkSelectAllCheckWithoutEvent(true);
+            }
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            var dlgRes = MessageBox.Show("Are you sure you want to permanently delete these files?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (dlgRes == DialogResult.Yes)
+            var dialogResult = MessageBox.Show(Resources.MessageBox_DeleteAllFilesReally, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
             {
                 int removedCount = 0;
-                for (int i = 0; i < LvwHandlers.Items.Count; i++)
+
+                foreach (var listViewItem in lvCleanupHandlers.Items.OfType<ListViewItem>())
                 {
-                    CleanupHandler cHandler = Preferences.CleanupHandlers[(int)LvwHandlers.Items[i].Tag - removedCount];
-                    if (!LblElevate.Visible)
+                    if (listViewItem.Tag is CleanupHandler cHandler)
                     {
-                        cHandler.StateFlag = LvwHandlers.Items[i].Checked;
-                        CleanupApi.UpdateHandlerStateFlag(cHandler);
-                    }
-                    // Get rid of handlers that we won't need early on
-                    if (!LvwHandlers.Items[i].Checked)
-                    {
-                        try { cHandler.Instance.Deactivate(out uint dummy); } catch { }
-                        Marshal.FinalReleaseComObject(cHandler.Instance);
-                        Preferences.CleanupHandlers.Remove(cHandler);
-                        removedCount++;
+                        if (!lblShoreMoreSettings.Visible)
+                        {
+                            cHandler.StateFlag = listViewItem.Checked;
+                            CleanupApi.UpdateHandlerStateFlag(cHandler);
+                        }
+
+                        // Get rid of handlers that we won't need early on
+                        if (!listViewItem.Checked)
+                        {
+                            try { cHandler.Instance.Deactivate(out uint dummy); } catch { }
+                            Marshal.FinalReleaseComObject(cHandler.Instance);
+                            Preferences.CleanupHandlers.Remove(cHandler);
+                            removedCount++;
+                        }
                     }
                 }
+
                 CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
                 Preferences.ProcessPurge = true;
                 Close();
             }
         }
 
-        private void LblAdvanced_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Preferences.CleanupHandlers[(int)LvwHandlers.SelectedItems[0].Tag].Instance.ShowProperties(Handle);
-        }
+        private void LblAdvanced_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => ((CleanupHandler)lvCleanupHandlers.SelectedItems[0].Tag).Instance.ShowProperties(Handle);
 
         private void LblElevate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo proc = new ProcessStartInfo
+            var startInfo = new ProcessStartInfo
             {
                 UseShellExecute = true,
                 WorkingDirectory = Environment.CurrentDirectory,
                 FileName = Application.ExecutablePath,
                 Verb = "runas"
             };
-            try { Process.Start(proc); } catch { return; }
+            try { Process.Start(startInfo); } catch { return; }
             Close();
         }
 
-        private void Info_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Burnbytes (Phoenix)\nAimed as open community cleaner! " + "\nVersion " + Program.GetCurrentVersionTostring() +
-         "\r\n\nThis is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface." +
-         "\r\n\nThis project is based upon Albacore's Managed Disk Cleanup\nhttps://github.com/thebookisclosed/Comet\r\n\n" +
-         "(C#) 2019, thebookisclosed\nhttps://twitter.com/thebookisclosed\r\n\n" +
-         "Modernised version\n(C#) 2020, Belim from www.mirinsoft.com",
-         "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        private void TsMenuItemAbout_Click(object sender, EventArgs e) => MessageBox.Show(Resources.MessageBox_AboutApplication.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        private void GitHub_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/mirinsoft/burnbytes");
-        }
+        private void TsMenuItemShowWebsite_Click(object sender, EventArgs e) => Process.Start("https://github.com/mirinsoft/burnbytes");
 
-        private void LblMainMenu_Click(object sender, EventArgs e)
-        {
-            contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
-        }
+        private void BtnShowMainMenu_Click(object sender, EventArgs e) => contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
 
-        private void BtnCheckAll_CheckedChanged(object sender, EventArgs e)
+        private void ChkSelectAllHandlers_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (ListViewItem listItem in LvwHandlers.Items)
-                listItem.Checked = !listItem.Checked;
-        }
+            if (sender is CheckBox checkBox)
+            {
+                lvCleanupHandlers.ItemChecked -= LvwHandlers_ItemChecked;
 
+                foreach (var listViewItem in lvCleanupHandlers.Items.OfType<ListViewItem>())
+                    listViewItem.Checked = checkBox.Checked;
+
+                lvCleanupHandlers.ItemChecked += LvwHandlers_ItemChecked;
+
+                CalculateSelectedSavings();
+            }
+        }
     }
-
 }

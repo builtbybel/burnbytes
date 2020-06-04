@@ -1,4 +1,5 @@
 ﻿using Burnbytes.Forms;
+using Burnbytes.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,7 @@ namespace Burnbytes
 
             if (Environment.OSVersion.Version.Build < 9200)
             {
-                MessageBox.Show("You're running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available.", "Burnbytes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.MessageBox_IncompleteSupportedOs, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -30,15 +31,15 @@ namespace Burnbytes
 
             if (Preferences.SelectedDrive is null) return;
 
-            ShowForm(new Scanner());
+            ShowForm<Scanner>();
 
             if (Preferences.CleanupHandlers != null && Preferences.CleanupHandlers.Any())
             {
-                ShowForm(new HandlerChoice());
+                ShowForm<HandlerChoice>();
 
                 if (Preferences.ProcessPurge)
                 {
-                    ShowForm(new Cleaner());
+                    ShowForm<Cleaner>();
                 }
             }
         }
@@ -60,9 +61,9 @@ namespace Burnbytes
             return availableDrives[0];
         }
 
-        static void ShowForm(Form form)
+        static void ShowForm<T>() where T : Form
         {
-            using (form)
+            using (var form = Activator.CreateInstance(typeof(T)) as Form)
             {
                 Application.Run(form);
             }

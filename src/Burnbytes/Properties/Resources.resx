@@ -117,28 +117,95 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Button_Cancel" xml:space="preserve">
+  <data name="Scanner_btnCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Label_Calculating" xml:space="preserve">
+  <data name="Scanner_lblCalculation" xml:space="preserve">
     <value>Calculating...</value>
   </data>
-  <data name="Label_Scanning" xml:space="preserve">
+  <data name="Scanner_lblScanning" xml:space="preserve">
     <value>Scanning:</value>
   </data>
-  <data name="Label_Scanner_Description" xml:space="preserve">
+  <data name="Scanner_lblDescription" xml:space="preserve">
     <value>Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete.</value>
   </data>
-  <data name="Button_Ok" xml:space="preserve">
+  <data name="DriveSelection_btnOk" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Button_Exit" xml:space="preserve">
+  <data name="DriveSelection_btnExit" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="Label_DriveSelection_Drives" xml:space="preserve">
+  <data name="DriveSelection_lblDrives" xml:space="preserve">
     <value>Drives</value>
   </data>
-  <data name="Label_DriveSelection_Description" xml:space="preserve">
+  <data name="DriveSelection_lblDescription" xml:space="preserve">
     <value>Select the drive you want to clean up.</value>
+  </data>
+  <data name="Cleaner_lblDescription" xml:space="preserve">
+    <value>Burnbytes is cleaning up unnecessary files on your machine.</value>
+  </data>
+  <data name="Cleaner_lblCleanup" xml:space="preserve">
+    <value>Cleaning up drive </value>
+  </data>
+  <data name="Cleaner_lblCleaning" xml:space="preserve">
+    <value>Cleaning:</value>
+  </data>
+  <data name="HandlerChoice_lblSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="HandlerChoice_lblInformation" xml:space="preserve">
+    <value>If you're low on space, we can try to clean up files using the settings on this page.</value>
+  </data>
+  <data name="HandlerChoice_chkSelectAllHandlers" xml:space="preserve">
+    <value>Files to delete:</value>
+  </data>
+  <data name="HandlerChoice_lblStorage" xml:space="preserve">
+    <value>Storage</value>
+  </data>
+  <data name="HandlerChoice_lblAboutCurrentCleanupHandler" xml:space="preserve">
+    <value>About this clean-up</value>
+  </data>
+  <data name="HandlerChoice_lblShowFilesInExplorer" xml:space="preserve">
+    <value>View files</value>
+  </data>
+  <data name="HandlerChoice_lblShoreMoreSettings" xml:space="preserve">
+    <value>More storage settings</value>
+  </data>
+  <data name="HandlerChoice_btnRunCleaning" xml:space="preserve">
+    <value>Cleaning</value>
+  </data>
+  <data name="HandlerChoice_lblIntroduction" xml:space="preserve">
+    <value>You can use Disk Cleanup to free up to {0} of disk space on {1}.</value>
+  </data>
+  <data name="HandlerChoice_tsMenuItemAbout" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="Label_Preparing" xml:space="preserve">
+    <value>{0} (Preparing...)</value>
+  </data>
+  <data name="MessageBox_AboutApplication" xml:space="preserve">
+    <value>{0}
+Aimed as open community cleaner!
+Version {1}
+
+This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+
+This project is based upon Albacore's Managed Disk Cleanup
+https://github.com/thebookisclosed/Comet
+
+(C#) 2019, thebookisclosed
+https://twitter.com/thebookisclosed
+
+(C#) 2020, Belim 
+www.mirinsoft.com</value>
+  </data>
+  <data name="MessageBox_DeleteAllFilesReally" xml:space="preserve">
+    <value>Are you sure you want to permanently delete these files?</value>
+  </data>
+  <data name="Cleaner_btnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MessageBox_IncompleteSupportedOs" xml:space="preserve">
+    <value>You're running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available.</value>
   </data>
 </root>

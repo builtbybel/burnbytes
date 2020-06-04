@@ -8,37 +8,56 @@ using System.Windows.Forms;
 
 namespace Burnbytes.Forms
 {
-    public partial class Scanner : Form
+    public partial class Scanner : FormBase
     {
+        // Events
+
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            if (HandlerThread.ThreadState == ThreadState.Running)
+            if (_thread.ThreadState == ThreadState.Running)
             {
-                HandlerThread.Abort();
+                _thread.Abort();
             }
 
             base.OnFormClosed(e);
         }
 
-        protected override void OnLoad(EventArgs e)
+        protected override void OnLocalize()
         {
-            base.OnLoad(e);
+            base.OnLocalize();
 
-            Text = Application.ProductName;
-            lblDescription.Text = Resources.Label_Scanner_Description.Format(Preferences.SelectedDrive.Name);
-            btnCancel.Text = Resources.Button_Cancel;
-            lblCalculation.Text = Resources.Label_Calculating;
-            lblScanning.Text = Resources.Label_Scanning;
 
+            Resources.ResourceManager.Localize<Scanner>
+                (
+                    lblDescription,
+                    btnCancel,
+                    lblCalculation,
+                    lblScanning
+                );
+
+            lblDescription.Text = lblDescription.Text.Format(Preferences.SelectedDrive.Name);
         }
 
-        private readonly Thread HandlerThread;
-
-        public Scanner()
+        protected override void OnShown(EventArgs e)
         {
-            InitializeComponent();
+            base.OnShown(e);
 
-            HandlerThread = new Thread(new ThreadStart(() =>
+            Run();
+        }
+
+        // Fields
+
+        private Thread _thread;
+
+        // Constructors
+
+        public Scanner() : base() => InitializeComponent();
+
+        // Methods
+
+        private void Run()
+        {
+            _thread = new Thread(new ThreadStart(() =>
             {
                 Preferences.CleanupHandlers = new List<CleanupHandler>();
                 using (var registryKey = Registry.LocalMachine.OpenSubKey(CleanupApi.VolumeCacheStoreKey, false))
@@ -97,8 +116,17 @@ namespace Burnbytes.Forms
                 });
             }));
 
-            HandlerThread.SetApartmentState(ApartmentState.STA);
-            HandlerThread.Start();
+            _thread.SetApartmentState(ApartmentState.STA);
+            _thread.Start();
+        }
+
+        // EventHandler
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+
+            _thread?.Abort();
+            Close();
         }
     }
 }
