@@ -117,67 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Button_Cancel" xml:space="preserve">
+  <data name="Scanner_btnCancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="Label_Calculating" xml:space="preserve">
+  <data name="Scanner_lblCalculation" xml:space="preserve">
     <value>Berechnung...</value>
   </data>
-  <data name="Label_Scanning" xml:space="preserve">
+  <data name="Scanner_lblScanning" xml:space="preserve">
     <value>Scanvorgang:</value>
   </data>
-  <data name="Label_Scanner_Description" xml:space="preserve">
+  <data name="Scanner_lblDescription" xml:space="preserve">
     <value>Burnbytes berechnet wie viel Speicherplatz auf {0} freigegeben werden kann. Dieser Vorgang kann einen Moment dauern.</value>
   </data>
-  <data name="Button_Ok" xml:space="preserve">
+  <data name="DriveSelection_btnOk" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Button_Exit" xml:space="preserve">
+  <data name="DriveSelection_btnExit" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="Label_DriveSelection_Drives" xml:space="preserve">
+  <data name="DriveSelection_lblDrives" xml:space="preserve">
     <value>Laufwerke</value>
   </data>
-  <data name="Label_DriveSelection_Description" xml:space="preserve">
+  <data name="DriveSelection_lblDescription" xml:space="preserve">
     <value>Wähle das Laufwerk aus, dass bereinigt werden soll.</value>
   </data>
-  <data name="Label_Cleaner_Description" xml:space="preserve">
+  <data name="Cleaner_lblDescription" xml:space="preserve">
     <value>Burnbytes löscht nicht mehr erforderliche Daten vom Computer.</value>
   </data>
-  <data name="Label_Cleanup" xml:space="preserve">
+  <data name="Cleaner_lblCleanup" xml:space="preserve">
     <value>Bereinigen von Laufwerk </value>
   </data>
-  <data name="Label_Cleaning" xml:space="preserve">
+  <data name="Cleaner_lblCleaning" xml:space="preserve">
     <value>Bereinigen:</value>
   </data>
-  <data name="Label_System" xml:space="preserve">
+  <data name="HandlerChoice_lblSystem" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="Label_HandlerChoice_Information" xml:space="preserve">
+  <data name="HandlerChoice_lblInformation" xml:space="preserve">
     <value>Wenn ihr Speicherplatz zur Neige geht, können wir versuchen mithilfe der hier getroffenen Einstellungen diesen zu bereinigen.</value>
   </data>
-  <data name="Label_FilesToDelete" xml:space="preserve">
+  <data name="HandlerChoice_chkSelectAllHandlers" xml:space="preserve">
     <value>Zu löschende Dateien:</value>
   </data>
-  <data name="Label_Storage" xml:space="preserve">
+  <data name="HandlerChoice_lblStorage" xml:space="preserve">
     <value>Speicher</value>
   </data>
-  <data name="Label_AboutCurrentCleanupHandler" xml:space="preserve">
+  <data name="HandlerChoice_lblAboutCurrentCleanupHandler" xml:space="preserve">
     <value>Über den Handler</value>
   </data>
-  <data name="Label_ShowFiles" xml:space="preserve">
+  <data name="HandlerChoice_lblShowFilesInExplorer" xml:space="preserve">
     <value>Dateien _anzeigen</value>
   </data>
-  <data name="Label_MoreStorageSettings" xml:space="preserve">
+  <data name="HandlerChoice_lblShoreMoreSettings" xml:space="preserve">
     <value>Weitere Speichereinstellungen</value>
   </data>
-  <data name="Button_RunCleaning" xml:space="preserve">
+  <data name="HandlerChoice_btnRunCleaning" xml:space="preserve">
     <value>Selektierte Elemente bereinigen</value>
   </data>
-  <data name="Label_Introduction" xml:space="preserve">
+  <data name="HandlerChoice_lblIntroduction" xml:space="preserve">
     <value>Sie können die Datenträgerbereinigung verwenden, um bis zu {0} des Speicherplatzes auf {1} freizugeben.</value>
   </data>
-  <data name="MenuItem_About" xml:space="preserve">
+  <data name="HandlerChoice_tsMenuItemAbout" xml:space="preserve">
     <value>Über {0}</value>
   </data>
   <data name="Label_Preparing" xml:space="preserve">
@@ -198,5 +198,11 @@ https://twitter.com/thebookisclosed
 
 Modernised version
 (C#) 2020, Belim from www.mirinsoft.com"</value>
+  </data>
+  <data name="Message_ReallyDeleteFiles" xml:space="preserve">
+    <value>Möchtest Du wirklich diese Dateien permanent löschen?</value>
+  </data>
+  <data name="Cleaner_btnCancel" xml:space="preserve">
+    <value>Abbrechen</value>
   </data>
 </root>

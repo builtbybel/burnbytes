@@ -41,14 +41,14 @@
             this.lblInformation = new System.Windows.Forms.Label();
             this.lblSavingsNum = new System.Windows.Forms.Label();
             this.pnlRight = new System.Windows.Forms.Panel();
-            this.lblMoreStorageSettings = new System.Windows.Forms.LinkLabel();
-            this.lblShowFiles = new System.Windows.Forms.LinkLabel();
+            this.lblShoreMoreSettings = new System.Windows.Forms.LinkLabel();
+            this.lblShowFilesInExplorer = new System.Windows.Forms.LinkLabel();
             this.lblAboutCurrentCleanupHandler = new System.Windows.Forms.Label();
             this.btnRunCleaning = new System.Windows.Forms.Button();
             this.lblStorage = new System.Windows.Forms.Label();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsMnIGitHub = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMnIAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuItemShowWebsite = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.chkSelectAllHandlers = new System.Windows.Forms.CheckBox();
             this.pnlMiddle = new System.Windows.Forms.Panel();
             this.pnlLeft.SuspendLayout();
@@ -197,8 +197,8 @@
             this.pnlRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlRight.BackColor = System.Drawing.Color.White;
-            this.pnlRight.Controls.Add(this.lblMoreStorageSettings);
-            this.pnlRight.Controls.Add(this.lblShowFiles);
+            this.pnlRight.Controls.Add(this.lblShoreMoreSettings);
+            this.pnlRight.Controls.Add(this.lblShowFilesInExplorer);
             this.pnlRight.Controls.Add(this.lblAboutCurrentCleanupHandler);
             this.pnlRight.Controls.Add(this.lblDescriptionOfCurrentCleanupHandler);
             this.pnlRight.Controls.Add(this.btnRunCleaning);
@@ -209,29 +209,29 @@
             // 
             // lblMoreStorageSettings
             // 
-            this.lblMoreStorageSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMoreStorageSettings.AutoSize = true;
-            this.lblMoreStorageSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoreStorageSettings.Location = new System.Drawing.Point(8, 531);
-            this.lblMoreStorageSettings.Name = "lblMoreStorageSettings";
-            this.lblMoreStorageSettings.Size = new System.Drawing.Size(161, 21);
-            this.lblMoreStorageSettings.TabIndex = 19;
-            this.lblMoreStorageSettings.TabStop = true;
-            this.lblMoreStorageSettings.Text = "More storage settings";
-            this.lblMoreStorageSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblElevate_LinkClicked);
+            this.lblShoreMoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblShoreMoreSettings.AutoSize = true;
+            this.lblShoreMoreSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShoreMoreSettings.Location = new System.Drawing.Point(8, 531);
+            this.lblShoreMoreSettings.Name = "lblMoreStorageSettings";
+            this.lblShoreMoreSettings.Size = new System.Drawing.Size(161, 21);
+            this.lblShoreMoreSettings.TabIndex = 19;
+            this.lblShoreMoreSettings.TabStop = true;
+            this.lblShoreMoreSettings.Text = "More storage settings";
+            this.lblShoreMoreSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblElevate_LinkClicked);
             // 
             // lblShowFiles
             // 
-            this.lblShowFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblShowFiles.AutoSize = true;
-            this.lblShowFiles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowFiles.Location = new System.Drawing.Point(8, 497);
-            this.lblShowFiles.Name = "lblShowFiles";
-            this.lblShowFiles.Size = new System.Drawing.Size(76, 21);
-            this.lblShowFiles.TabIndex = 18;
-            this.lblShowFiles.TabStop = true;
-            this.lblShowFiles.Text = "View files";
-            this.lblShowFiles.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblAdvanced_LinkClicked);
+            this.lblShowFilesInExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblShowFilesInExplorer.AutoSize = true;
+            this.lblShowFilesInExplorer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowFilesInExplorer.Location = new System.Drawing.Point(8, 497);
+            this.lblShowFilesInExplorer.Name = "lblShowFiles";
+            this.lblShowFilesInExplorer.Size = new System.Drawing.Size(76, 21);
+            this.lblShowFilesInExplorer.TabIndex = 18;
+            this.lblShowFilesInExplorer.TabStop = true;
+            this.lblShowFilesInExplorer.Text = "View files";
+            this.lblShowFilesInExplorer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblAdvanced_LinkClicked);
             // 
             // lblAboutCurrentCleanupHandler
             // 
@@ -286,28 +286,28 @@
             // 
             this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsMnIGitHub,
-            this.tsMnIAbout});
+            this.tsMenuItemShowWebsite,
+            this.tsMenuItemAbout});
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.contextMenu.Size = new System.Drawing.Size(219, 56);
             // 
             // tsMnIGitHub
             // 
-            this.tsMnIGitHub.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMnIGitHub.Image = ((System.Drawing.Image)(resources.GetObject("tsMnIGitHub.Image")));
-            this.tsMnIGitHub.Name = "tsMnIGitHub";
-            this.tsMnIGitHub.Size = new System.Drawing.Size(218, 26);
-            this.tsMnIGitHub.Text = "@github/burnbytes";
-            this.tsMnIGitHub.Click += new System.EventHandler(this.GitHub_Click);
+            this.tsMenuItemShowWebsite.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsMenuItemShowWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsMnIGitHub.Image")));
+            this.tsMenuItemShowWebsite.Name = "tsMnIGitHub";
+            this.tsMenuItemShowWebsite.Size = new System.Drawing.Size(218, 26);
+            this.tsMenuItemShowWebsite.Text = "@github/burnbytes";
+            this.tsMenuItemShowWebsite.Click += new System.EventHandler(this.TsMenuItemShowWebsite_Click);
             // 
             // tsMnIAbout
             // 
-            this.tsMnIAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMnIAbout.Name = "tsMnIAbout";
-            this.tsMnIAbout.Size = new System.Drawing.Size(218, 26);
-            this.tsMnIAbout.Text = "Info";
-            this.tsMnIAbout.Click += new System.EventHandler(this.Info_Click);
+            this.tsMenuItemAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsMenuItemAbout.Name = "tsMnIAbout";
+            this.tsMenuItemAbout.Size = new System.Drawing.Size(218, 26);
+            this.tsMenuItemAbout.Text = "Info";
+            this.tsMenuItemAbout.Click += new System.EventHandler(this.TsMenuItemAbout_Click);
             // 
             // chkSelectAllHandlers
             // 
@@ -378,12 +378,12 @@
         private System.Windows.Forms.Label lblStorage;
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label lblAboutCurrentCleanupHandler;
-        private System.Windows.Forms.LinkLabel lblShowFiles;
-        private System.Windows.Forms.LinkLabel lblMoreStorageSettings;
+        private System.Windows.Forms.LinkLabel lblShowFilesInExplorer;
+        private System.Windows.Forms.LinkLabel lblShoreMoreSettings;
         private System.Windows.Forms.Label lblSystem;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem tsMnIAbout;
-        private System.Windows.Forms.ToolStripMenuItem tsMnIGitHub;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuItemShowWebsite;
         private System.Windows.Forms.Button btnShowMainMenu;
         private System.Windows.Forms.CheckBox chkSelectAllHandlers;
         private System.Windows.Forms.Panel pnlMiddle;

@@ -63,135 +63,162 @@ namespace Burnbytes.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
         /// </summary>
-        internal static string Button_Cancel {
+        internal static string Cleaner_btnCancel {
             get {
-                return ResourceManager.GetString("Button_Cancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
-        /// </summary>
-        internal static string Button_Exit {
-            get {
-                return ResourceManager.GetString("Button_Exit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
-        /// </summary>
-        internal static string Button_Ok {
-            get {
-                return ResourceManager.GetString("Button_Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Clean selected items ähnelt.
-        /// </summary>
-        internal static string Button_RunCleaning {
-            get {
-                return ResourceManager.GetString("Button_RunCleaning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About this clean-up ähnelt.
-        /// </summary>
-        internal static string Label_AboutCurrentCleanupHandler {
-            get {
-                return ResourceManager.GetString("Label_AboutCurrentCleanupHandler", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
-        /// </summary>
-        internal static string Label_Calculating {
-            get {
-                return ResourceManager.GetString("Label_Calculating", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is cleaning up unnecessary files on your machine. ähnelt.
-        /// </summary>
-        internal static string Label_Cleaner_Description {
-            get {
-                return ResourceManager.GetString("Label_Cleaner_Description", resourceCulture);
+                return ResourceManager.GetString("Cleaner_btnCancel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning: ähnelt.
         /// </summary>
-        internal static string Label_Cleaning {
+        internal static string Cleaner_lblCleaning {
             get {
-                return ResourceManager.GetString("Label_Cleaning", resourceCulture);
+                return ResourceManager.GetString("Cleaner_lblCleaning", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning up drive  ähnelt.
         /// </summary>
-        internal static string Label_Cleanup {
+        internal static string Cleaner_lblCleanup {
             get {
-                return ResourceManager.GetString("Label_Cleanup", resourceCulture);
+                return ResourceManager.GetString("Cleaner_lblCleanup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is cleaning up unnecessary files on your machine. ähnelt.
+        /// </summary>
+        internal static string Cleaner_lblDescription {
+            get {
+                return ResourceManager.GetString("Cleaner_lblDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
+        /// </summary>
+        internal static string DriveSelection_btnExit {
+            get {
+                return ResourceManager.GetString("DriveSelection_btnExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        internal static string DriveSelection_btnOk {
+            get {
+                return ResourceManager.GetString("DriveSelection_btnOk", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Select the drive you want to clean up. ähnelt.
         /// </summary>
-        internal static string Label_DriveSelection_Description {
+        internal static string DriveSelection_lblDescription {
             get {
-                return ResourceManager.GetString("Label_DriveSelection_Description", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_lblDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Drives ähnelt.
         /// </summary>
-        internal static string Label_DriveSelection_Drives {
+        internal static string DriveSelection_lblDrives {
             get {
-                return ResourceManager.GetString("Label_DriveSelection_Drives", resourceCulture);
+                return ResourceManager.GetString("DriveSelection_lblDrives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Clean selected items ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_btnRunCleaning {
+            get {
+                return ResourceManager.GetString("HandlerChoice_btnRunCleaning", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Files to delete: ähnelt.
         /// </summary>
-        internal static string Label_FilesToDelete {
+        internal static string HandlerChoice_chkSelectAllHandlers {
             get {
-                return ResourceManager.GetString("Label_FilesToDelete", resourceCulture);
+                return ResourceManager.GetString("HandlerChoice_chkSelectAllHandlers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About this clean-up ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblAboutCurrentCleanupHandler {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblAboutCurrentCleanupHandler", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die If you&apos;re low on space, we can try to clean up files using the settings on this page. ähnelt.
         /// </summary>
-        internal static string Label_HandlerChoice_Information {
+        internal static string HandlerChoice_lblInformation {
             get {
-                return ResourceManager.GetString("Label_HandlerChoice_Information", resourceCulture);
+                return ResourceManager.GetString("HandlerChoice_lblInformation", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die You can use Disk Cleanup to free up to {0} of disk space on {1}. ähnelt.
         /// </summary>
-        internal static string Label_Introduction {
+        internal static string HandlerChoice_lblIntroduction {
             get {
-                return ResourceManager.GetString("Label_Introduction", resourceCulture);
+                return ResourceManager.GetString("HandlerChoice_lblIntroduction", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die More storage settings ähnelt.
         /// </summary>
-        internal static string Label_MoreStorageSettings {
+        internal static string HandlerChoice_lblShoreMoreSettings {
             get {
-                return ResourceManager.GetString("Label_MoreStorageSettings", resourceCulture);
+                return ResourceManager.GetString("HandlerChoice_lblShoreMoreSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View files ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblShowFilesInExplorer {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblShowFilesInExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Storage ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblStorage {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die System ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_lblSystem {
+            get {
+                return ResourceManager.GetString("HandlerChoice_lblSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About {0} ähnelt.
+        /// </summary>
+        internal static string HandlerChoice_tsMenuItemAbout {
+            get {
+                return ResourceManager.GetString("HandlerChoice_tsMenuItemAbout", resourceCulture);
             }
         }
         
@@ -201,60 +228,6 @@ namespace Burnbytes.Properties {
         internal static string Label_Preparing {
             get {
                 return ResourceManager.GetString("Label_Preparing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete. ähnelt.
-        /// </summary>
-        internal static string Label_Scanner_Description {
-            get {
-                return ResourceManager.GetString("Label_Scanner_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Scanning: ähnelt.
-        /// </summary>
-        internal static string Label_Scanning {
-            get {
-                return ResourceManager.GetString("Label_Scanning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die View files ähnelt.
-        /// </summary>
-        internal static string Label_ShowFiles {
-            get {
-                return ResourceManager.GetString("Label_ShowFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Storage ähnelt.
-        /// </summary>
-        internal static string Label_Storage {
-            get {
-                return ResourceManager.GetString("Label_Storage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die System ähnelt.
-        /// </summary>
-        internal static string Label_System {
-            get {
-                return ResourceManager.GetString("Label_System", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About {0} ähnelt.
-        /// </summary>
-        internal static string MenuItem_About {
-            get {
-                return ResourceManager.GetString("MenuItem_About", resourceCulture);
             }
         }
         
@@ -277,6 +250,51 @@ namespace Burnbytes.Properties {
         internal static string Message_About {
             get {
                 return ResourceManager.GetString("Message_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Are you sure you want to permanently delete these files? ähnelt.
+        /// </summary>
+        internal static string Message_ReallyDeleteFiles {
+            get {
+                return ResourceManager.GetString("Message_ReallyDeleteFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string Scanner_btnCancel {
+            get {
+                return ResourceManager.GetString("Scanner_btnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
+        /// </summary>
+        internal static string Scanner_lblCalculation {
+            get {
+                return ResourceManager.GetString("Scanner_lblCalculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete. ähnelt.
+        /// </summary>
+        internal static string Scanner_lblDescription {
+            get {
+                return ResourceManager.GetString("Scanner_lblDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Scanning: ähnelt.
+        /// </summary>
+        internal static string Scanner_lblScanning {
+            get {
+                return ResourceManager.GetString("Scanner_lblScanning", resourceCulture);
             }
         }
     }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
+using System.Resources;
+using System.Windows.Forms;
 
 namespace Burnbytes
 {
@@ -44,5 +46,23 @@ namespace Burnbytes
         }
 
         public static string Format(this string @string, params object[] args) => string.Format(@string, args);
+
+
+        public static void Localize<T>(this ResourceManager resourceManager, params Control[] controls)
+        {
+            foreach (var control in controls)
+            {
+                try
+                {
+                    control.Text = resourceManager.GetString($"{typeof(T).Name}_{control.Name}");
+                }
+                catch (Exception)
+                {
+                    control.Text = "Localization failed!";
+                }
+
+            }
+
+        }
     }
 }

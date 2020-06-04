@@ -6,15 +6,22 @@ namespace Burnbytes.Forms
 {
     public partial class DriveSelection : FormBase
     {
+        // Events
+
         protected override void OnLocalize()
         {
             base.OnLocalize();
 
-            btnExit.Text = Resources.Button_Exit;
-            btnOk.Text = Resources.Button_Ok;
-            lblDrives.Text = Resources.Label_DriveSelection_Drives;
-            lblDescription.Text = Resources.Label_DriveSelection_Description;
+            Resources.ResourceManager.Localize<DriveSelection>
+                (
+                    btnExit,
+                    btnOk,
+                    lblDrives,
+                    lblDescription
+                ); ;
         }
+
+        // Constructors
 
         public DriveSelection(IEnumerable<DriveStrings> availableDrives) : base()
         {
@@ -24,6 +31,8 @@ namespace Burnbytes.Forms
 
             cbDrives.SelectedIndex = 0;
         }
+
+        // Properties
 
         public DriveStrings SelectedDrive => DialogResult == DialogResult.OK ? (DriveStrings)cbDrives.SelectedItem : null;
     }

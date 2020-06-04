@@ -35,25 +35,25 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // LblSelect
+            // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(18, 13);
-            this.lblDescription.Name = "LblSelect";
+            this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(186, 13);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Select the drive you want to clean up.";
             // 
-            // LblDrives
+            // lblDrives
             // 
             this.lblDrives.AutoSize = true;
             this.lblDrives.Location = new System.Drawing.Point(18, 34);
-            this.lblDrives.Name = "LblDrives";
+            this.lblDrives.Name = "lblDrives";
             this.lblDrives.Size = new System.Drawing.Size(40, 13);
             this.lblDrives.TabIndex = 4;
             this.lblDrives.Text = "&Drives:";
             // 
-            // CbbDrives
+            // cbDrives
             // 
             this.cbDrives.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -61,28 +61,28 @@
             this.cbDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDrives.FormattingEnabled = true;
             this.cbDrives.Location = new System.Drawing.Point(20, 52);
-            this.cbDrives.Name = "CbbDrives";
+            this.cbDrives.Name = "cbDrives";
             this.cbDrives.Size = new System.Drawing.Size(261, 21);
             this.cbDrives.TabIndex = 0;
             // 
-            // BtnOk
+            // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnOk.Location = new System.Drawing.Point(68, 89);
-            this.btnOk.Name = "BtnOk";
+            this.btnOk.Location = new System.Drawing.Point(125, 89);
+            this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // BtnExit
+            // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnExit.Location = new System.Drawing.Point(162, 89);
-            this.btnExit.Name = "BtnExit";
+            this.btnExit.Location = new System.Drawing.Point(206, 89);
+            this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "E&xit";

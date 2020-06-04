@@ -5,6 +5,8 @@ namespace Burnbytes
 {
     public partial class FormBase : Form
     {
+        // Events
+
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
@@ -18,28 +20,19 @@ namespace Burnbytes
             OnLocalize();
         }
 
-        public FormBase()
-        {
-            Application.Idle += Application_Idle;
-        }
+        // Concstructors
 
+        public FormBase() => Application.Idle += Application_Idle;
 
+        public FormBase(Form owner) : this() => Owner = owner;
 
-        public FormBase(Form owner) : this()
-        {
-            Owner = owner;
-        }
+        // Methods
 
+        protected virtual void OnLocalize() => Text = Application.ProductName;
 
-        protected virtual void OnLocalize()
-        {
-            Text = Application.ProductName;
-        }
+        protected virtual void OnApplicationIdle() { }
 
-        protected virtual void OnApplicationIdle()
-        {
-
-        }
+        // EventHandlers
 
         private void Application_Idle(object sender, EventArgs e) => OnApplicationIdle();
     }

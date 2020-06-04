@@ -12,6 +12,8 @@ namespace Burnbytes.Forms
 {
     public partial class HandlerChoice : FormBase
     {
+        // Events
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -28,25 +30,32 @@ namespace Burnbytes.Forms
             base.OnLocalize();
 
             Text += " " + Preferences.SelectedDrive.Name;
-            lblStorage.Text = Resources.Label_Storage;
-            lblInformation.Text = Resources.Label_HandlerChoice_Information;
-            lblSystem.Text = Resources.Label_System;
-            lblIntroduction.Text = Resources.Label_Introduction;
-            chkSelectAllHandlers.Text = Resources.Label_FilesToDelete;
-            lblAboutCurrentCleanupHandler.Text = Resources.Label_AboutCurrentCleanupHandler;
-            lblShowFiles.Text = Resources.Label_ShowFiles;
-            lblMoreStorageSettings.Text = Resources.Label_MoreStorageSettings;
-            btnRunCleaning.Text = Resources.Button_RunCleaning;
-            tsMnIAbout.Text = Resources.MenuItem_About.Format(Application.ProductName);
+
+            Resources.ResourceManager.Localize<HandlerChoice>
+                (
+                    lblStorage,
+                    lblInformation,
+                    lblSystem,
+                    chkSelectAllHandlers,
+                    lblAboutCurrentCleanupHandler,
+                    lblShowFilesInExplorer,
+                    lblShoreMoreSettings,
+                    btnRunCleaning
+                );
+
+
+            tsMenuItemAbout.Text = Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName);
         }
 
         protected override void OnApplicationIdle()
         {
             base.OnApplicationIdle();
 
-            lblIntroduction.Text = Resources.Label_Introduction.Format(Preferences.CurrentSelectionSavings.ToReadableString(), Preferences.SelectedDrive.Name);
+            lblIntroduction.Text = Resources.HandlerChoice_lblIntroduction.Format(Preferences.CurrentSelectionSavings.ToReadableString(), Preferences.SelectedDrive.Name);
             btnRunCleaning.Enabled = lvCleanupHandlers.Items.OfType<ListViewItem>().Any(item => item.Checked);
         }
+
+        // Conctructors
 
         public HandlerChoice() : base()
         {
@@ -58,9 +67,9 @@ namespace Burnbytes.Forms
             {
                 var principal = new WindowsPrincipal(identity);
                 if (principal.IsInRole(WindowsBuiltInRole.Administrator))
-                    lblMoreStorageSettings.Visible = false;
+                    lblShoreMoreSettings.Visible = false;
                 else
-                    NativeMethods.SendMessage(lblMoreStorageSettings.Handle, 0x160C, 0, 1);
+                    NativeMethods.SendMessage(lblShoreMoreSettings.Handle, 0x160C, 0, 1);
             }
 
             var il = new ImageList
@@ -112,6 +121,7 @@ namespace Burnbytes.Forms
             lvCleanupHandlers.SmallImageList = il;
         }
 
+        // Nethods
 
         private void InitializeListViewItems()
         {
@@ -176,6 +186,8 @@ namespace Burnbytes.Forms
                 return null;
         }
 
+        // EventHandler
+
         private void LvwHandlers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvCleanupHandlers.SelectedItems.Count > 0)
@@ -187,12 +199,12 @@ namespace Burnbytes.Forms
                 if ((currentCleanupHandler.Flags & HandlerFlags.HasSettings) == HandlerFlags.HasSettings)
                 {
                     if (currentCleanupHandler.ButtonText != null)
-                        lblShowFiles.Text = currentCleanupHandler.ButtonText;
+                        lblShowFilesInExplorer.Text = currentCleanupHandler.ButtonText;
 
-                    lblShowFiles.Visible = true;
+                    lblShowFilesInExplorer.Visible = true;
                 }
                 else
-                    lblShowFiles.Visible = false;
+                    lblShowFilesInExplorer.Visible = false;
             }
         }
 
@@ -213,27 +225,32 @@ namespace Burnbytes.Forms
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            var dlgRes = MessageBox.Show("Are you sure you want to permanently delete these files?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (dlgRes == DialogResult.Yes)
+            var dialogResult = MessageBox.Show(Resources.Message_ReallyDeleteFiles, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
             {
                 int removedCount = 0;
-                for (int i = 0; i < lvCleanupHandlers.Items.Count; i++)
+
+                foreach (var listViewItem in lvCleanupHandlers.Items.OfType<ListViewItem>())
                 {
-                    CleanupHandler cHandler = Preferences.CleanupHandlers[(int)lvCleanupHandlers.Items[i].Tag - removedCount];
-                    if (!lblMoreStorageSettings.Visible)
+                    if (listViewItem.Tag is CleanupHandler cHandler)
                     {
-                        cHandler.StateFlag = lvCleanupHandlers.Items[i].Checked;
-                        CleanupApi.UpdateHandlerStateFlag(cHandler);
-                    }
-                    // Get rid of handlers that we won't need early on
-                    if (!lvCleanupHandlers.Items[i].Checked)
-                    {
-                        try { cHandler.Instance.Deactivate(out uint dummy); } catch { }
-                        Marshal.FinalReleaseComObject(cHandler.Instance);
-                        Preferences.CleanupHandlers.Remove(cHandler);
-                        removedCount++;
+                        if (!lblShoreMoreSettings.Visible)
+                        {
+                            cHandler.StateFlag = listViewItem.Checked;
+                            CleanupApi.UpdateHandlerStateFlag(cHandler);
+                        }
+
+                        // Get rid of handlers that we won't need early on
+                        if (!listViewItem.Checked)
+                        {
+                            try { cHandler.Instance.Deactivate(out uint dummy); } catch { }
+                            Marshal.FinalReleaseComObject(cHandler.Instance);
+                            Preferences.CleanupHandlers.Remove(cHandler);
+                            removedCount++;
+                        }
                     }
                 }
+
                 CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
                 Preferences.ProcessPurge = true;
                 Close();
@@ -255,9 +272,9 @@ namespace Burnbytes.Forms
             Close();
         }
 
-        private void Info_Click(object sender, EventArgs e) => MessageBox.Show(Resources.Message_About.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.MenuItem_About.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void TsMenuItemAbout_Click(object sender, EventArgs e) => MessageBox.Show(Resources.Message_About.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        private void GitHub_Click(object sender, EventArgs e) => Process.Start("https://github.com/mirinsoft/burnbytes");
+        private void TsMenuItemShowWebsite_Click(object sender, EventArgs e) => Process.Start("https://github.com/mirinsoft/burnbytes");
 
         private void BtnShowMainMenu_Click(object sender, EventArgs e) => contextMenu.Show(Cursor.Position.X, Cursor.Position.Y);
 
@@ -265,8 +282,14 @@ namespace Burnbytes.Forms
         {
             if (sender is CheckBox checkBox)
             {
+                lvCleanupHandlers.ItemChecked -= LvwHandlers_ItemChecked;
+
                 foreach (var listViewItem in lvCleanupHandlers.Items.OfType<ListViewItem>())
                     listViewItem.Checked = checkBox.Checked;
+
+                lvCleanupHandlers.ItemChecked += LvwHandlers_ItemChecked;
+
+                CalculateSelectedSavings();
             }
         }
     }
