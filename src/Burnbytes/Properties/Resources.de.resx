@@ -172,7 +172,7 @@
     <value>Weitere Speichereinstellungen</value>
   </data>
   <data name="HandlerChoice_btnRunCleaning" xml:space="preserve">
-    <value>Selektierte Elemente bereinigen</value>
+    <value>Bereinigen</value>
   </data>
   <data name="HandlerChoice_lblIntroduction" xml:space="preserve">
     <value>Sie können die Datenträgerbereinigung verwenden, um bis zu {0} des Speicherplatzes auf {1} freizugeben.</value>
@@ -183,7 +183,7 @@
   <data name="Label_Preparing" xml:space="preserve">
     <value>{0} (Vorbereiten...)</value>
   </data>
-  <data name="Message_About" xml:space="preserve">
+  <data name="MessageBox_AboutApplication" xml:space="preserve">
     <value>{0}
 Angestrebt als offener Community Cleaner!
 Version {1}
@@ -199,10 +199,13 @@ https://twitter.com/thebookisclosed
 (C#) 2020 Belim 
 www.mirinsoft.com</value>
   </data>
-  <data name="Message_ReallyDeleteFiles" xml:space="preserve">
+  <data name="MessageBox_DeleteAllFilesReally" xml:space="preserve">
     <value>Möchtest Du wirklich diese Dateien permanent löschen?</value>
   </data>
   <data name="Cleaner_btnCancel" xml:space="preserve">
     <value>Abbrechen</value>
+  </data>
+  <data name="MessageBox_IncompleteSupportedOs" xml:space="preserve">
+    <value>Sie arbeiten auf einem System, das älter als Windows 8 ist. Aufgrund von Unterschieden in der Architektur der Datenträgerbereinigung steht nur eine begrenzte Funktionalität zur Verfügung.</value>
   </data>
 </root>

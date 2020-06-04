@@ -133,7 +133,7 @@ namespace Burnbytes.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Clean selected items ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning ähnelt.
         /// </summary>
         internal static string HandlerChoice_btnRunCleaning {
             get {
@@ -247,18 +247,27 @@ namespace Burnbytes.Properties {
         ///(C#) 2020, Belim 
         ///www.miri [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
-        internal static string Message_About {
+        internal static string MessageBox_AboutApplication {
             get {
-                return ResourceManager.GetString("Message_About", resourceCulture);
+                return ResourceManager.GetString("MessageBox_AboutApplication", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Are you sure you want to permanently delete these files? ähnelt.
         /// </summary>
-        internal static string Message_ReallyDeleteFiles {
+        internal static string MessageBox_DeleteAllFilesReally {
             get {
-                return ResourceManager.GetString("Message_ReallyDeleteFiles", resourceCulture);
+                return ResourceManager.GetString("MessageBox_DeleteAllFilesReally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You&apos;re running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available. ähnelt.
+        /// </summary>
+        internal static string MessageBox_IncompleteSupportedOs {
+            get {
+                return ResourceManager.GetString("MessageBox_IncompleteSupportedOs", resourceCulture);
             }
         }
         

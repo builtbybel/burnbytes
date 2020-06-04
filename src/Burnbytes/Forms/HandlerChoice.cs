@@ -225,7 +225,7 @@ namespace Burnbytes.Forms
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show(Resources.Message_ReallyDeleteFiles, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            var dialogResult = MessageBox.Show(Resources.MessageBox_DeleteAllFilesReally, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
                 int removedCount = 0;
@@ -272,7 +272,7 @@ namespace Burnbytes.Forms
             Close();
         }
 
-        private void TsMenuItemAbout_Click(object sender, EventArgs e) => MessageBox.Show(Resources.Message_About.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void TsMenuItemAbout_Click(object sender, EventArgs e) => MessageBox.Show(Resources.MessageBox_AboutApplication.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         private void TsMenuItemShowWebsite_Click(object sender, EventArgs e) => Process.Start("https://github.com/mirinsoft/burnbytes");
 

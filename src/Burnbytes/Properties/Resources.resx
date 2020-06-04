@@ -172,7 +172,7 @@
     <value>More storage settings</value>
   </data>
   <data name="HandlerChoice_btnRunCleaning" xml:space="preserve">
-    <value>Clean selected items</value>
+    <value>Cleaning</value>
   </data>
   <data name="HandlerChoice_lblIntroduction" xml:space="preserve">
     <value>You can use Disk Cleanup to free up to {0} of disk space on {1}.</value>
@@ -183,7 +183,7 @@
   <data name="Label_Preparing" xml:space="preserve">
     <value>{0} (Preparing...)</value>
   </data>
-  <data name="Message_About" xml:space="preserve">
+  <data name="MessageBox_AboutApplication" xml:space="preserve">
     <value>{0}
 Aimed as open community cleaner!
 Version {1}
@@ -199,10 +199,13 @@ https://twitter.com/thebookisclosed
 (C#) 2020, Belim 
 www.mirinsoft.com</value>
   </data>
-  <data name="Message_ReallyDeleteFiles" xml:space="preserve">
+  <data name="MessageBox_DeleteAllFilesReally" xml:space="preserve">
     <value>Are you sure you want to permanently delete these files?</value>
   </data>
   <data name="Cleaner_btnCancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="MessageBox_IncompleteSupportedOs" xml:space="preserve">
+    <value>You're running on a system older than Windows 8. Due to differences in Disk Cleanup architecture, only limited functionality will be available.</value>
   </data>
 </root>
