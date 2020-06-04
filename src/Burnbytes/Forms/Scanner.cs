@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Burnbytes.Forms
 {
-    public partial class Scanner : Form
+    public partial class Scanner : FormBase
     {
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -20,21 +20,19 @@ namespace Burnbytes.Forms
             base.OnFormClosed(e);
         }
 
-        protected override void OnLoad(EventArgs e)
+        protected override void OnLocalize()
         {
-            base.OnLoad(e);
+            base.OnLocalize();
 
-            Text = Application.ProductName;
             lblDescription.Text = Resources.Label_Scanner_Description.Format(Preferences.SelectedDrive.Name);
             btnCancel.Text = Resources.Button_Cancel;
             lblCalculation.Text = Resources.Label_Calculating;
             lblScanning.Text = Resources.Label_Scanning;
-
         }
 
         private readonly Thread HandlerThread;
 
-        public Scanner()
+        public Scanner() : base()
         {
             InitializeComponent();
 

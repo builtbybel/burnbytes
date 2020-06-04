@@ -141,4 +141,62 @@
   <data name="Label_DriveSelection_Description" xml:space="preserve">
     <value>Select the drive you want to clean up.</value>
   </data>
+  <data name="Label_Cleaner_Description" xml:space="preserve">
+    <value>Burnbytes is cleaning up unnecessary files on your machine.</value>
+  </data>
+  <data name="Label_Cleanup" xml:space="preserve">
+    <value>Cleaning up drive </value>
+  </data>
+  <data name="Label_Cleaning" xml:space="preserve">
+    <value>Cleaning:</value>
+  </data>
+  <data name="Label_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Label_HandlerChoice_Information" xml:space="preserve">
+    <value>If you're low on space, we can try to clean up files using the settings on this page.</value>
+  </data>
+  <data name="Label_FilesToDelete" xml:space="preserve">
+    <value>Files to delete:</value>
+  </data>
+  <data name="Label_Storage" xml:space="preserve">
+    <value>Storage</value>
+  </data>
+  <data name="Label_AboutCurrentCleanupHandler" xml:space="preserve">
+    <value>About this clean-up</value>
+  </data>
+  <data name="Label_ShowFiles" xml:space="preserve">
+    <value>View files</value>
+  </data>
+  <data name="Label_MoreStorageSettings" xml:space="preserve">
+    <value>More storage settings</value>
+  </data>
+  <data name="Button_RunCleaning" xml:space="preserve">
+    <value>Clean selected items</value>
+  </data>
+  <data name="Label_Introduction" xml:space="preserve">
+    <value>You can use Disk Cleanup to free up to {0} of disk space on {1}.</value>
+  </data>
+  <data name="MenuItem_About" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="Label_Preparing" xml:space="preserve">
+    <value>{0} (Preparing...)</value>
+  </data>
+  <data name="Message_About" xml:space="preserve">
+    <value>{0}
+Aimed as open community cleaner!
+Version {1}
+
+This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+
+This project is based upon Albacore's Managed Disk Cleanup
+https://github.com/thebookisclosed/Comet)
+
+(C#) 2019, thebookisclosed
+https://twitter.com/thebookisclosed
+
+Modernised version
+(C#) 2020, Belim from www.mirinsoft.com"</value>
+  </data>
 </root>

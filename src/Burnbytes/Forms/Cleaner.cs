@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Burnbytes.Properties;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -6,15 +7,17 @@ using System.Windows.Forms;
 
 namespace Burnbytes.Forms
 {
-    public partial class Cleaner : Form
+    public partial class Cleaner : FormBase
     {
-
-        protected override void OnLoad(EventArgs e)
+        protected override void OnLocalize()
         {
-            base.OnLoad(e);
+            base.OnLocalize();
 
             lblCleanup.Text += Preferences.SelectedDrive.Name;
-
+            lblDescription.Text = Resources.Label_Cleaner_Description;
+            lblCleanup.Text = Resources.Label_Cleanup;
+            LblCleaning.Text = Resources.Label_Cleaning;
+            btnCancel.Text = Resources.Button_Cancel;
         }
 
 
@@ -26,11 +29,11 @@ namespace Burnbytes.Forms
         private int _lastHandlerPercent;
         private CleanupHandler _currentHandler;
 
-        public Cleaner()
+        public Cleaner() : base()
         {
             InitializeComponent();
-           
-            lblCurrentHandler.Text = $"{Preferences.CleanupHandlers[0].DisplayName} (Preparing...)";
+
+            lblCurrentHandler.Text = Resources.Label_Preparing.Format(Preferences.CleanupHandlers[0].DisplayName);
 
             _thread = new Thread(new ThreadStart(() =>
             {
@@ -49,7 +52,7 @@ namespace Burnbytes.Forms
                     if (i > 0 && lblCurrentHandler.IsHandleCreated)
                         Invoke((MethodInvoker)delegate
                         {
-                            lblCurrentHandler.Text = $"{_currentHandler.DisplayName} (Preparing...)";
+                            lblCurrentHandler.Text = Resources.Label_Preparing.Format(_currentHandler.DisplayName);
                         });
                     int spaceResult = _currentHandler.Instance.GetSpaceUsed(out long newSpaceUsed, _callBacks);
                     if (spaceResult >= 0)

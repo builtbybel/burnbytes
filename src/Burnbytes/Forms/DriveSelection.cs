@@ -1,24 +1,22 @@
 ﻿using Burnbytes.Properties;
-using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Burnbytes.Forms
 {
-    public partial class DriveSelection : Form
+    public partial class DriveSelection : FormBase
     {
-        protected override void OnLoad(EventArgs e)
+        protected override void OnLocalize()
         {
-            base.OnLoad(e);
+            base.OnLocalize();
 
-            Text = Application.ProductName;
             btnExit.Text = Resources.Button_Exit;
             btnOk.Text = Resources.Button_Ok;
             lblDrives.Text = Resources.Label_DriveSelection_Drives;
             lblDescription.Text = Resources.Label_DriveSelection_Description;
         }
 
-        public DriveSelection(List<DriveStrings> availableDrives)
+        public DriveSelection(IEnumerable<DriveStrings> availableDrives) : base()
         {
             InitializeComponent();
 

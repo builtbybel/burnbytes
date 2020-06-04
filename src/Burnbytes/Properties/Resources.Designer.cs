@@ -88,11 +88,56 @@ namespace Burnbytes.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Clean selected items ähnelt.
+        /// </summary>
+        internal static string Button_RunCleaning {
+            get {
+                return ResourceManager.GetString("Button_RunCleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About this clean-up ähnelt.
+        /// </summary>
+        internal static string Label_AboutCurrentCleanupHandler {
+            get {
+                return ResourceManager.GetString("Label_AboutCurrentCleanupHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Calculating... ähnelt.
         /// </summary>
         internal static string Label_Calculating {
             get {
                 return ResourceManager.GetString("Label_Calculating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is cleaning up unnecessary files on your machine. ähnelt.
+        /// </summary>
+        internal static string Label_Cleaner_Description {
+            get {
+                return ResourceManager.GetString("Label_Cleaner_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning: ähnelt.
+        /// </summary>
+        internal static string Label_Cleaning {
+            get {
+                return ResourceManager.GetString("Label_Cleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cleaning up drive  ähnelt.
+        /// </summary>
+        internal static string Label_Cleanup {
+            get {
+                return ResourceManager.GetString("Label_Cleanup", resourceCulture);
             }
         }
         
@@ -115,6 +160,51 @@ namespace Burnbytes.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Files to delete: ähnelt.
+        /// </summary>
+        internal static string Label_FilesToDelete {
+            get {
+                return ResourceManager.GetString("Label_FilesToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die If you&apos;re low on space, we can try to clean up files using the settings on this page. ähnelt.
+        /// </summary>
+        internal static string Label_HandlerChoice_Information {
+            get {
+                return ResourceManager.GetString("Label_HandlerChoice_Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You can use Disk Cleanup to free up to {0} of disk space on {1}. ähnelt.
+        /// </summary>
+        internal static string Label_Introduction {
+            get {
+                return ResourceManager.GetString("Label_Introduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die More storage settings ähnelt.
+        /// </summary>
+        internal static string Label_MoreStorageSettings {
+            get {
+                return ResourceManager.GetString("Label_MoreStorageSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} (Preparing...) ähnelt.
+        /// </summary>
+        internal static string Label_Preparing {
+            get {
+                return ResourceManager.GetString("Label_Preparing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Burnbytes is calculating how much space you will be able to free on {0}. This may take a few minutes to complete. ähnelt.
         /// </summary>
         internal static string Label_Scanner_Description {
@@ -129,6 +219,64 @@ namespace Burnbytes.Properties {
         internal static string Label_Scanning {
             get {
                 return ResourceManager.GetString("Label_Scanning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View files ähnelt.
+        /// </summary>
+        internal static string Label_ShowFiles {
+            get {
+                return ResourceManager.GetString("Label_ShowFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Storage ähnelt.
+        /// </summary>
+        internal static string Label_Storage {
+            get {
+                return ResourceManager.GetString("Label_Storage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die System ähnelt.
+        /// </summary>
+        internal static string Label_System {
+            get {
+                return ResourceManager.GetString("Label_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About {0} ähnelt.
+        /// </summary>
+        internal static string MenuItem_About {
+            get {
+                return ResourceManager.GetString("MenuItem_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0}
+        ///Aimed as open community cleaner!
+        ///Version {1}
+        ///
+        ///This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+        ///
+        ///This project is based upon Albacore&apos;s Managed Disk Cleanup
+        ///https://github.com/thebookisclosed/Comet)
+        ///
+        ///(C#) 2019, thebookisclosed
+        ///https://twitter.com/thebookisclosed
+        ///
+        ///Modernised version
+        ///(C#) 2 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string Message_About {
+            get {
+                return ResourceManager.GetString("Message_About", resourceCulture);
             }
         }
     }

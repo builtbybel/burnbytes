@@ -121,13 +121,13 @@
     <value>Abbrechen</value>
   </data>
   <data name="Label_Calculating" xml:space="preserve">
-    <value>Berechnen...</value>
+    <value>Berechnung...</value>
   </data>
   <data name="Label_Scanning" xml:space="preserve">
-    <value>Überprüfe:</value>
+    <value>Scanvorgang:</value>
   </data>
   <data name="Label_Scanner_Description" xml:space="preserve">
-    <value>Burnbytes berechnet wie viel Speicher auf {0} freigegeben werden kann. Dieser Vorgang kann einige Minuten dauern.</value>
+    <value>Burnbytes berechnet wie viel Speicherplatz auf {0} freigegeben werden kann. Dieser Vorgang kann einen Moment dauern.</value>
   </data>
   <data name="Button_Ok" xml:space="preserve">
     <value>OK</value>
@@ -140,5 +140,63 @@
   </data>
   <data name="Label_DriveSelection_Description" xml:space="preserve">
     <value>Wähle das Laufwerk aus, dass bereinigt werden soll.</value>
+  </data>
+  <data name="Label_Cleaner_Description" xml:space="preserve">
+    <value>Burnbytes löscht nicht mehr erforderliche Daten vom Computer.</value>
+  </data>
+  <data name="Label_Cleanup" xml:space="preserve">
+    <value>Bereinigen von Laufwerk </value>
+  </data>
+  <data name="Label_Cleaning" xml:space="preserve">
+    <value>Bereinigen:</value>
+  </data>
+  <data name="Label_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Label_HandlerChoice_Information" xml:space="preserve">
+    <value>Wenn ihr Speicherplatz zur Neige geht, können wir versuchen mithilfe der hier getroffenen Einstellungen diesen zu bereinigen.</value>
+  </data>
+  <data name="Label_FilesToDelete" xml:space="preserve">
+    <value>Zu löschende Dateien:</value>
+  </data>
+  <data name="Label_Storage" xml:space="preserve">
+    <value>Speicher</value>
+  </data>
+  <data name="Label_AboutCurrentCleanupHandler" xml:space="preserve">
+    <value>Über den Handler</value>
+  </data>
+  <data name="Label_ShowFiles" xml:space="preserve">
+    <value>Dateien _anzeigen</value>
+  </data>
+  <data name="Label_MoreStorageSettings" xml:space="preserve">
+    <value>Weitere Speichereinstellungen</value>
+  </data>
+  <data name="Button_RunCleaning" xml:space="preserve">
+    <value>Selektierte Elemente bereinigen</value>
+  </data>
+  <data name="Label_Introduction" xml:space="preserve">
+    <value>Sie können die Datenträgerbereinigung verwenden, um bis zu {0} des Speicherplatzes auf {1} freizugeben.</value>
+  </data>
+  <data name="MenuItem_About" xml:space="preserve">
+    <value>Über {0}</value>
+  </data>
+  <data name="Label_Preparing" xml:space="preserve">
+    <value>{0} (Vorbereiten...)</value>
+  </data>
+  <data name="Message_About" xml:space="preserve">
+    <value>{0}
+Aimed as open community cleaner!
+Version {1}
+
+This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+
+This project is based upon Albacore's Managed Disk Cleanup
+https://github.com/thebookisclosed/Comet)
+
+(C#) 2019, thebookisclosed
+https://twitter.com/thebookisclosed
+
+Modernised version
+(C#) 2020, Belim from www.mirinsoft.com"</value>
   </data>
 </root>

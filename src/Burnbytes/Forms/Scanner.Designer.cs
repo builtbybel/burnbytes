@@ -87,7 +87,7 @@
             // lblCurrentHandler
             // 
             this.lblCurrentHandler.AutoSize = true;
-            this.lblCurrentHandler.Location = new System.Drawing.Point(63, 96);
+            this.lblCurrentHandler.Location = new System.Drawing.Point(90, 96);
             this.lblCurrentHandler.Name = "lblCurrentHandler";
             this.lblCurrentHandler.Size = new System.Drawing.Size(0, 13);
             this.lblCurrentHandler.TabIndex = 5;
