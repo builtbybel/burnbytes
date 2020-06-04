@@ -239,13 +239,13 @@ namespace Burnbytes.Properties {
         ///This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
         ///
         ///This project is based upon Albacore&apos;s Managed Disk Cleanup
-        ///https://github.com/thebookisclosed/Comet)
+        ///https://github.com/thebookisclosed/Comet
         ///
         ///(C#) 2019, thebookisclosed
         ///https://twitter.com/thebookisclosed
         ///
-        ///Modernised version
-        ///(C#) 2 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///(C#) 2020, Belim 
+        ///www.miri [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string Message_About {
             get {

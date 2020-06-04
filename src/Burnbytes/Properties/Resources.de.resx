@@ -185,19 +185,19 @@
   </data>
   <data name="Message_About" xml:space="preserve">
     <value>{0}
-Aimed as open community cleaner!
+Angestrebt als offener Community Cleaner!
 Version {1}
 
-This is my vision of a Disk cleanup utility in Windows 10, which should have been implemented by Microsoft instead of Storage sense. It combines the classic menu navigation of Disk cleanup (cleanmgr.exe) with a modernized Windows 10 typical user interface.
+Dies ist meine Vision von einem Dienstprogramm zur Datenträgerbereinigung in Windows 10, das von Microsoft hätte implementiert werden sollen, anstatt von Storage sense. Es kombiniert die klassische Menüführung der Datenträgerbereinigung (cleanmgr.exe) mit einer modernisierten Windows-10-typischen Benutzeroberfläche.
 
-This project is based upon Albacore's Managed Disk Cleanup
-https://github.com/thebookisclosed/Comet)
+Dieses Projekt basiert auf Albacore's Managed Disk Cleanup
+https://github.com/thebookisclosed/Comet
 
 (C#) 2019, thebookisclosed
 https://twitter.com/thebookisclosed
 
-Modernised version
-(C#) 2020, Belim from www.mirinsoft.com"</value>
+(C#) 2020 Belim 
+www.mirinsoft.com</value>
   </data>
   <data name="Message_ReallyDeleteFiles" xml:space="preserve">
     <value>Möchtest Du wirklich diese Dateien permanent löschen?</value>
