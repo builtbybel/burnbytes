@@ -7,6 +7,5 @@ namespace Burnbytes
         public static DriveStrings SelectedDrive;
         public static List<CleanupHandler> CleanupHandlers;
         public static long CurrentSelectionSavings;
-        public static bool ProcessPurge;
     }
 }

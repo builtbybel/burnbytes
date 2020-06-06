@@ -78,7 +78,7 @@
             this.lblIntroduction.Location = new System.Drawing.Point(12, 71);
             this.lblIntroduction.Name = "lblIntroduction";
             this.lblIntroduction.Size = new System.Drawing.Size(466, 45);
-            this.lblIntroduction.TabIndex = 2;
+            this.lblIntroduction.TabIndex = 4;
             this.lblIntroduction.Text = "You can use Disk Cleanup to free up to {0} of disk space on {1}.";
             // 
             // lvCleanupHandlers
@@ -100,7 +100,7 @@
             this.lvCleanupHandlers.Name = "lvCleanupHandlers";
             this.lvCleanupHandlers.Scrollable = false;
             this.lvCleanupHandlers.Size = new System.Drawing.Size(466, 531);
-            this.lvCleanupHandlers.TabIndex = 3;
+            this.lvCleanupHandlers.TabIndex = 2;
             this.lvCleanupHandlers.UseCompatibleStateImageBehavior = false;
             this.lvCleanupHandlers.View = System.Windows.Forms.View.Details;
             this.lvCleanupHandlers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LvwHandlers_ItemChecked);
@@ -128,7 +128,7 @@
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(264, 689);
-            this.pnlLeft.TabIndex = 13;
+            this.pnlLeft.TabIndex = 1;
             // 
             // btnShowMainMenu
             // 
@@ -144,7 +144,7 @@
             this.btnShowMainMenu.Name = "btnShowMainMenu";
             this.btnShowMainMenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnShowMainMenu.Size = new System.Drawing.Size(44, 51);
-            this.btnShowMainMenu.TabIndex = 20;
+            this.btnShowMainMenu.TabIndex = 0;
             this.btnShowMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnShowMainMenu.UseVisualStyleBackColor = false;
             this.btnShowMainMenu.Click += new System.EventHandler(this.BtnShowMainMenu_Click);
@@ -161,7 +161,7 @@
             this.lblSystem.Location = new System.Drawing.Point(12, 71);
             this.lblSystem.Name = "lblSystem";
             this.lblSystem.Size = new System.Drawing.Size(63, 21);
-            this.lblSystem.TabIndex = 17;
+            this.lblSystem.TabIndex = 1;
             this.lblSystem.Text = "System";
             // 
             // lblInformation
@@ -175,7 +175,7 @@
             this.lblInformation.Location = new System.Drawing.Point(12, 119);
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(249, 90);
-            this.lblInformation.TabIndex = 16;
+            this.lblInformation.TabIndex = 2;
             this.lblInformation.Text = "If you\'re low on space, we can try \r\nto clean up files using \r\nthe settings on th" +
     "is page.\r\n";
             // 
@@ -189,7 +189,7 @@
             this.lblSavingsNum.Location = new System.Drawing.Point(314, 117);
             this.lblSavingsNum.Name = "lblSavingsNum";
             this.lblSavingsNum.Size = new System.Drawing.Size(164, 25);
-            this.lblSavingsNum.TabIndex = 14;
+            this.lblSavingsNum.TabIndex = 0;
             this.lblSavingsNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlRight
@@ -205,30 +205,30 @@
             this.pnlRight.Location = new System.Drawing.Point(757, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(279, 689);
-            this.pnlRight.TabIndex = 14;
+            this.pnlRight.TabIndex = 0;
             // 
-            // lblMoreStorageSettings
+            // lblShoreMoreSettings
             // 
             this.lblShoreMoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblShoreMoreSettings.AutoSize = true;
             this.lblShoreMoreSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShoreMoreSettings.Location = new System.Drawing.Point(8, 531);
-            this.lblShoreMoreSettings.Name = "lblMoreStorageSettings";
+            this.lblShoreMoreSettings.Name = "lblShoreMoreSettings";
             this.lblShoreMoreSettings.Size = new System.Drawing.Size(161, 21);
-            this.lblShoreMoreSettings.TabIndex = 19;
+            this.lblShoreMoreSettings.TabIndex = 4;
             this.lblShoreMoreSettings.TabStop = true;
             this.lblShoreMoreSettings.Text = "More storage settings";
             this.lblShoreMoreSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblElevate_LinkClicked);
             // 
-            // lblShowFiles
+            // lblShowFilesInExplorer
             // 
             this.lblShowFilesInExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblShowFilesInExplorer.AutoSize = true;
             this.lblShowFilesInExplorer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowFilesInExplorer.Location = new System.Drawing.Point(8, 497);
-            this.lblShowFilesInExplorer.Name = "lblShowFiles";
+            this.lblShowFilesInExplorer.Name = "lblShowFilesInExplorer";
             this.lblShowFilesInExplorer.Size = new System.Drawing.Size(76, 21);
-            this.lblShowFilesInExplorer.TabIndex = 18;
+            this.lblShowFilesInExplorer.TabIndex = 3;
             this.lblShowFilesInExplorer.TabStop = true;
             this.lblShowFilesInExplorer.Text = "View files";
             this.lblShowFilesInExplorer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblAdvanced_LinkClicked);
@@ -245,7 +245,7 @@
             this.lblAboutCurrentCleanupHandler.Location = new System.Drawing.Point(8, 71);
             this.lblAboutCurrentCleanupHandler.Name = "lblAboutCurrentCleanupHandler";
             this.lblAboutCurrentCleanupHandler.Size = new System.Drawing.Size(153, 21);
-            this.lblAboutCurrentCleanupHandler.TabIndex = 17;
+            this.lblAboutCurrentCleanupHandler.TabIndex = 1;
             this.lblAboutCurrentCleanupHandler.Text = "About this clean-up";
             this.lblAboutCurrentCleanupHandler.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -261,7 +261,7 @@
             this.btnRunCleaning.Location = new System.Drawing.Point(8, 569);
             this.btnRunCleaning.Name = "btnRunCleaning";
             this.btnRunCleaning.Size = new System.Drawing.Size(213, 37);
-            this.btnRunCleaning.TabIndex = 5;
+            this.btnRunCleaning.TabIndex = 0;
             this.btnRunCleaning.Text = "Clean selected items";
             this.btnRunCleaning.UseVisualStyleBackColor = false;
             this.btnRunCleaning.Click += new System.EventHandler(this.BtnOk_Click);
@@ -278,7 +278,7 @@
             this.lblStorage.Location = new System.Drawing.Point(12, 12);
             this.lblStorage.Name = "lblStorage";
             this.lblStorage.Size = new System.Drawing.Size(99, 32);
-            this.lblStorage.TabIndex = 15;
+            this.lblStorage.TabIndex = 3;
             this.lblStorage.Text = "Storage";
             this.lblStorage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -292,19 +292,19 @@
             this.contextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.contextMenu.Size = new System.Drawing.Size(219, 56);
             // 
-            // tsMnIGitHub
+            // tsMenuItemShowWebsite
             // 
             this.tsMenuItemShowWebsite.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMenuItemShowWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsMnIGitHub.Image")));
-            this.tsMenuItemShowWebsite.Name = "tsMnIGitHub";
+            this.tsMenuItemShowWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuItemShowWebsite.Image")));
+            this.tsMenuItemShowWebsite.Name = "tsMenuItemShowWebsite";
             this.tsMenuItemShowWebsite.Size = new System.Drawing.Size(218, 26);
             this.tsMenuItemShowWebsite.Text = "@github/burnbytes";
             this.tsMenuItemShowWebsite.Click += new System.EventHandler(this.TsMenuItemShowWebsite_Click);
             // 
-            // tsMnIAbout
+            // tsMenuItemAbout
             // 
             this.tsMenuItemAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMenuItemAbout.Name = "tsMnIAbout";
+            this.tsMenuItemAbout.Name = "tsMenuItemAbout";
             this.tsMenuItemAbout.Size = new System.Drawing.Size(218, 26);
             this.tsMenuItemAbout.Text = "Info";
             this.tsMenuItemAbout.Click += new System.EventHandler(this.TsMenuItemAbout_Click);
@@ -321,7 +321,7 @@
             this.chkSelectAllHandlers.Margin = new System.Windows.Forms.Padding(2);
             this.chkSelectAllHandlers.Name = "chkSelectAllHandlers";
             this.chkSelectAllHandlers.Size = new System.Drawing.Size(296, 21);
-            this.chkSelectAllHandlers.TabIndex = 120;
+            this.chkSelectAllHandlers.TabIndex = 1;
             this.chkSelectAllHandlers.Text = "Files to delete";
             this.chkSelectAllHandlers.UseVisualStyleBackColor = true;
             this.chkSelectAllHandlers.CheckedChanged += new System.EventHandler(this.ChkSelectAllHandlers_CheckedChanged);
@@ -339,10 +339,11 @@
             this.pnlMiddle.Location = new System.Drawing.Point(270, 0);
             this.pnlMiddle.Name = "pnlMiddle";
             this.pnlMiddle.Size = new System.Drawing.Size(481, 689);
-            this.pnlMiddle.TabIndex = 121;
+            this.pnlMiddle.TabIndex = 2;
             // 
             // HandlerChoice
             // 
+            this.AcceptButton = this.btnRunCleaning;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
