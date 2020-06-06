@@ -23,6 +23,8 @@ namespace Burnbytes.Forms
             InitializeListViewItems();
 
             CalculateSelectedSavings();
+
+            btnRunCleaning.Focus();
         }
 
         protected override void OnLocalize()
@@ -52,14 +54,6 @@ namespace Burnbytes.Forms
 
             lblIntroduction.Text = Resources.HandlerChoice_lblIntroduction.Format(Preferences.CurrentSelectionSavings.ToReadableString(), Preferences.SelectedDrive.Name);
             btnRunCleaning.Enabled = lvCleanupHandlers.Items.OfType<ListViewItem>().Any(item => item.Checked);
-        }
-
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            base.OnFormClosed(e);
-
-            if (DialogResult == DialogResult.Cancel)
-                Preferences.ProcessPurge = false;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -269,8 +263,7 @@ namespace Burnbytes.Forms
                 }
 
                 CleanupApi.DeactivateHandlers(Preferences.CleanupHandlers);
-                Preferences.ProcessPurge = true;
-                Close();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -286,7 +279,8 @@ namespace Burnbytes.Forms
                 Verb = "runas"
             };
             try { Process.Start(startInfo); } catch { return; }
-            Close();
+            DialogResult = DialogResult.Cancel;
+
         }
 
         private void TsMenuItemAbout_Click(object sender, EventArgs e) => MessageBox.Show(Resources.MessageBox_AboutApplication.Format(Application.ProductName, Program.GetCurrentVersionTostring()), Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName), MessageBoxButtons.OK, MessageBoxIcon.Information);

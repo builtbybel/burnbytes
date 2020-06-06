@@ -63,19 +63,19 @@
             this.cbDrives.Location = new System.Drawing.Point(20, 52);
             this.cbDrives.Name = "cbDrives";
             this.cbDrives.Size = new System.Drawing.Size(261, 21);
-            this.cbDrives.TabIndex = 0;
+            this.cbDrives.TabIndex = 2;
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnOk.Location = new System.Drawing.Point(125, 89);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 1;
+            this.btnOk.TabIndex = 0;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             // 
             // btnExit
             // 
@@ -85,7 +85,7 @@
             this.btnExit.Location = new System.Drawing.Point(206, 89);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 1;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             // 

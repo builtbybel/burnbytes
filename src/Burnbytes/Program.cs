@@ -35,9 +35,7 @@ namespace Burnbytes
 
             if (Preferences.CleanupHandlers != null && Preferences.CleanupHandlers.Any())
             {
-                ShowForm<HandlerChoice>();
-
-                if (Preferences.ProcessPurge)
+                if (ShowForm<HandlerChoice>() == DialogResult.OK)
                 {
                     ShowForm<Cleaner>();
                 }
@@ -61,11 +59,11 @@ namespace Burnbytes
             return availableDrives[0];
         }
 
-        static void ShowForm<T>() where T : Form
+        static DialogResult ShowForm<T>() where T : Form
         {
             using (var form = Activator.CreateInstance(typeof(T)) as Form)
             {
-                form.ShowDialog();
+                return form.ShowDialog();
             }
         }
 
