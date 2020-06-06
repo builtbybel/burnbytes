@@ -75,6 +75,7 @@
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             // 
             // btnExit
             // 

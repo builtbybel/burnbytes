@@ -65,6 +65,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancel.Location = new System.Drawing.Point(249, 74);
             this.btnCancel.Name = "btnCancel";
@@ -104,6 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(335, 126);
             this.Controls.Add(this.ptbLogo);
             this.Controls.Add(this.lblCurrentHandler);

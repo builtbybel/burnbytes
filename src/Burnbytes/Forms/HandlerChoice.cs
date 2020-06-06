@@ -43,7 +43,6 @@ namespace Burnbytes.Forms
                     btnRunCleaning
                 );
 
-
             tsMenuItemAbout.Text = Resources.HandlerChoice_tsMenuItemAbout.Format(Application.ProductName);
         }
 
@@ -53,6 +52,24 @@ namespace Burnbytes.Forms
 
             lblIntroduction.Text = Resources.HandlerChoice_lblIntroduction.Format(Preferences.CurrentSelectionSavings.ToReadableString(), Preferences.SelectedDrive.Name);
             btnRunCleaning.Enabled = lvCleanupHandlers.Items.OfType<ListViewItem>().Any(item => item.Checked);
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            if (DialogResult == DialogResult.Cancel)
+                Preferences.ProcessPurge = false;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         // Conctructors

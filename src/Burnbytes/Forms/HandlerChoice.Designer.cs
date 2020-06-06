@@ -207,26 +207,26 @@
             this.pnlRight.Size = new System.Drawing.Size(279, 689);
             this.pnlRight.TabIndex = 14;
             // 
-            // lblMoreStorageSettings
+            // lblShoreMoreSettings
             // 
             this.lblShoreMoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblShoreMoreSettings.AutoSize = true;
             this.lblShoreMoreSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShoreMoreSettings.Location = new System.Drawing.Point(8, 531);
-            this.lblShoreMoreSettings.Name = "lblMoreStorageSettings";
+            this.lblShoreMoreSettings.Name = "lblShoreMoreSettings";
             this.lblShoreMoreSettings.Size = new System.Drawing.Size(161, 21);
             this.lblShoreMoreSettings.TabIndex = 19;
             this.lblShoreMoreSettings.TabStop = true;
             this.lblShoreMoreSettings.Text = "More storage settings";
             this.lblShoreMoreSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblElevate_LinkClicked);
             // 
-            // lblShowFiles
+            // lblShowFilesInExplorer
             // 
             this.lblShowFilesInExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblShowFilesInExplorer.AutoSize = true;
             this.lblShowFilesInExplorer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowFilesInExplorer.Location = new System.Drawing.Point(8, 497);
-            this.lblShowFilesInExplorer.Name = "lblShowFiles";
+            this.lblShowFilesInExplorer.Name = "lblShowFilesInExplorer";
             this.lblShowFilesInExplorer.Size = new System.Drawing.Size(76, 21);
             this.lblShowFilesInExplorer.TabIndex = 18;
             this.lblShowFilesInExplorer.TabStop = true;
@@ -290,21 +290,21 @@
             this.tsMenuItemAbout});
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenu.Size = new System.Drawing.Size(219, 56);
+            this.contextMenu.Size = new System.Drawing.Size(219, 78);
             // 
-            // tsMnIGitHub
+            // tsMenuItemShowWebsite
             // 
             this.tsMenuItemShowWebsite.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMenuItemShowWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsMnIGitHub.Image")));
-            this.tsMenuItemShowWebsite.Name = "tsMnIGitHub";
+            this.tsMenuItemShowWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuItemShowWebsite.Image")));
+            this.tsMenuItemShowWebsite.Name = "tsMenuItemShowWebsite";
             this.tsMenuItemShowWebsite.Size = new System.Drawing.Size(218, 26);
             this.tsMenuItemShowWebsite.Text = "@github/burnbytes";
             this.tsMenuItemShowWebsite.Click += new System.EventHandler(this.TsMenuItemShowWebsite_Click);
             // 
-            // tsMnIAbout
+            // tsMenuItemAbout
             // 
             this.tsMenuItemAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsMenuItemAbout.Name = "tsMnIAbout";
+            this.tsMenuItemAbout.Name = "tsMenuItemAbout";
             this.tsMenuItemAbout.Size = new System.Drawing.Size(218, 26);
             this.tsMenuItemAbout.Text = "Info";
             this.tsMenuItemAbout.Click += new System.EventHandler(this.TsMenuItemAbout_Click);
@@ -343,6 +343,7 @@
             // 
             // HandlerChoice
             // 
+            this.AcceptButton = this.btnRunCleaning;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;

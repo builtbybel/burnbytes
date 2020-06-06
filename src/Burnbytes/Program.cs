@@ -52,7 +52,7 @@ namespace Burnbytes
             {
                 using (var driveSelection = new DriveSelection(availableDrives))
                 {
-                    Application.Run(driveSelection);
+                    driveSelection.ShowDialog();
 
                     return driveSelection.SelectedDrive;
                 }
@@ -65,7 +65,7 @@ namespace Burnbytes
         {
             using (var form = Activator.CreateInstance(typeof(T)) as Form)
             {
-                Application.Run(form);
+                form.ShowDialog();
             }
         }
 
