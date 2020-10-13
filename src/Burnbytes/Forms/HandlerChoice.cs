@@ -72,6 +72,9 @@ namespace Burnbytes.Forms
         {
             InitializeComponent();
 
+            // GUI options
+            // This is using font icons predefined in the fonts of Segoe MDL2 Assets as UWP apps
+            btnShowMainMenu.Text = "\ue700";    // Hamburger menu
 
             // Check if we are running as administrator, if yes, give the elevation button a shield
             using (var identity = WindowsIdentity.GetCurrent())

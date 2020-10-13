@@ -121,7 +121,7 @@
             // 
             this.pnlLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlLeft.BackColor = System.Drawing.Color.LightGray;
+            this.pnlLeft.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLeft.Controls.Add(this.btnShowMainMenu);
             this.pnlLeft.Controls.Add(this.lblSystem);
             this.pnlLeft.Controls.Add(this.lblInformation);
@@ -132,20 +132,17 @@
             // 
             // btnShowMainMenu
             // 
-            this.btnShowMainMenu.BackColor = System.Drawing.Color.LightGray;
-            this.btnShowMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnShowMainMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnShowMainMenu.FlatAppearance.BorderSize = 0;
+            this.btnShowMainMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.HotPink;
             this.btnShowMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMainMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowMainMenu.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowMainMenu.ForeColor = System.Drawing.Color.Black;
-            this.btnShowMainMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMainMenu.Image")));
-            this.btnShowMainMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnShowMainMenu.Location = new System.Drawing.Point(0, 0);
             this.btnShowMainMenu.Name = "btnShowMainMenu";
-            this.btnShowMainMenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnShowMainMenu.Size = new System.Drawing.Size(44, 51);
+            this.btnShowMainMenu.Size = new System.Drawing.Size(48, 51);
             this.btnShowMainMenu.TabIndex = 0;
-            this.btnShowMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnShowMainMenu.UseVisualStyleBackColor = false;
             this.btnShowMainMenu.Click += new System.EventHandler(this.BtnShowMainMenu_Click);
             // 
@@ -253,7 +250,7 @@
             // 
             this.btnRunCleaning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRunCleaning.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnRunCleaning.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btnRunCleaning.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.btnRunCleaning.FlatAppearance.BorderSize = 2;
             this.btnRunCleaning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRunCleaning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
